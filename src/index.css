@@ -40,11 +40,6 @@ body {
   overflow-x: hidden;
 }
 
-body.no-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
-
 img {
   display: block;
   max-width: 100%;

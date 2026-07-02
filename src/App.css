@@ -1,15 +1,3 @@
-/* ============ intro stage ============ */
-
-.intro-stage {
-  background: #e4e6e4;
-  min-height: 100vh;
-}
-
-.intro-stage[data-intro-done='false'] .page {
-  overflow: hidden;
-  box-shadow: 0 40px 120px rgba(20, 30, 24, 0.28);
-}
-
 /* ============ nav ============ */
 
 .nav {

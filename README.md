@@ -5,8 +5,6 @@ page, rebuilt animation-for-animation from a reference video.
 
 ## Animations
 
-- **Intro preloader** — the page loads as a miniature mockup, then zooms into
-  the hero (Framer Motion scale/borderRadius timeline).
 - **Hero** — slow Ken Burns zoom on the field photo, staggered fade-up for the
   headline, tagline and "Explore more" mouse indicator.
 - **Stats** — count-up numbers (32+, 182+, 134 K, $15 Billion) triggered when
