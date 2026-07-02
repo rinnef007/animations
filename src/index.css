@@ -1,0 +1,138 @@
+:root {
+  --bg: #f2f3f2;
+  --surface: #ffffff;
+  --ink: #191b19;
+  --ink-soft: #4c524e;
+  --muted: #b9bdba;
+  --muted-2: #d8dbd8;
+  --green: #235c48;
+  --green-deep: #1c4a3a;
+  --mint: #eaf3f0;
+  --yellow: #e9f65a;
+  --radius-card: 14px;
+  --font: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- layout helpers ---------- */
+
+.page {
+  background: var(--bg);
+}
+
+.shell {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    padding: 0 24px;
+  }
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0 28px;
+  border-bottom: 1px solid var(--muted-2);
+}
+
+.section-head .label {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.section-head .see-all {
+  color: var(--green);
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+}
+
+.section-head .see-all::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.section-head .see-all:hover::after {
+  transform: scaleX(1);
+}
+
+/* pill button used across sections */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--muted-2);
+  background: transparent;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-pill:hover {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
