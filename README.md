@@ -1,7 +1,8 @@
-# Harvest — Animated Agriculture Landing Page
+# VDF — Animated Agriculture Landing Page (Vietnamese)
 
-A React + Framer Motion recreation of the "Harvest" smart-agriculture landing
-page, rebuilt animation-for-animation from a reference video.
+A React + Framer Motion smart-agriculture landing page, rebuilt
+animation-for-animation from a reference video. All content is in
+Vietnamese under the "VDF" brand.
 
 ## Animations
 
@@ -10,7 +11,7 @@ page, rebuilt animation-for-animation from a reference video.
 - **Stats** — count-up numbers (32+, 182+, 134 K, $15 Billion) triggered when
   the row scrolls into view.
 - **About** — emphasized copy plus three feature cards with staggered reveals.
-- **Scroll text reveal** — "Transforming Agriculture with Smart Solutions…"
+- **Scroll text reveal** — "Chuyển đổi nông nghiệp bằng giải pháp thông minh…"
   colors in word-by-word as you scroll (`useScroll` + `useTransform`).
 - **Services** — numbered items (01–03) with growing rule lines, fade-up copy
   and images sliding in from alternating sides.
@@ -18,7 +19,7 @@ page, rebuilt animation-for-animation from a reference video.
   (AnimatePresence slide transitions).
 - **Articles** — clickable category tabs with animated list swaps.
 - **CTA** — email signup with a popping "Join now" button.
-- **Footer** — giant parallax "Harvest." watermark overlapping the CTA.
+- **Footer** — giant parallax "VDF." watermark overlapping the CTA.
 - **Smooth scrolling** throughout via Lenis.
 
 ## Stack
@@ -26,7 +27,7 @@ page, rebuilt animation-for-animation from a reference video.
 - [Vite](https://vite.dev/) + React 19
 - [Framer Motion](https://motion.dev/) for all animations
 - [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
-- Self-hosted [Instrument Sans](https://fontsource.org/fonts/instrument-sans)
+- Self-hosted [Be Vietnam Pro](https://fontsource.org/fonts/be-vietnam-pro) (full Vietnamese glyph support)
 - Stock photos from Unsplash/Pexels stored in `public/images`
 
 ## Run it

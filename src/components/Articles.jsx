@@ -3,16 +3,16 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
 
 export default function Articles() {
-  const [category, setCategory] = useState('Technology and Innovation')
+  const [category, setCategory] = useState('Công nghệ và đổi mới')
   const articles = ARTICLES[category]
 
   return (
     <section className="articles" id="articles">
       <div className="shell">
         <div className="section-head">
-          <span className="label">Articles</span>
+          <span className="label">Bài viết</span>
           <a className="see-all" href="#articles">
-            See all
+            Xem tất cả
           </a>
         </div>
         <div className="articles__grid">
@@ -67,7 +67,7 @@ export default function Articles() {
                     <h3>{article.title}</h3>
                     <p>{article.excerpt}</p>
                     <a className="article-card__link" href="#articles">
-                      Learn more
+                      Tìm hiểu thêm
                     </a>
                   </motion.article>
                 ))}

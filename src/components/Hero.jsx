@@ -15,7 +15,7 @@ export default function Hero() {
       <motion.img
         className="hero__bg"
         src="/images/hero-field.jpg"
-        alt="Aerial view of green farmland"
+        alt="Cánh đồng xanh nhìn từ trên cao"
         initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}
         transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
@@ -28,7 +28,7 @@ export default function Hero() {
           animate="show"
           custom={0.5}
         >
-          Harvest.
+          VDF.
         </motion.h1>
         <motion.p
           variants={fadeUp}
@@ -36,10 +36,10 @@ export default function Hero() {
           animate="show"
           custom={0.75}
         >
-          Pioneering the future of agriculture by integrating advanced
-          technologies and innovative practices. Our mission is to create
-          sustainable and efficient farming solutions that ensure a healthy and
-          bountiful harvest for generations to come.
+          Tiên phong kiến tạo tương lai nông nghiệp bằng việc ứng dụng công
+          nghệ tiên tiến và những phương pháp canh tác đổi mới. Sứ mệnh của
+          chúng tôi là xây dựng các giải pháp nông nghiệp bền vững, hiệu quả,
+          đảm bảo mùa màng bội thu và khỏe mạnh cho các thế hệ mai sau.
         </motion.p>
       </div>
       <motion.a
@@ -53,7 +53,7 @@ export default function Hero() {
           transition: { duration: 0.9, delay: 1.05, ease: [0.22, 1, 0.36, 1] },
         }}
       >
-        <span>Explore more</span>
+        <span>Khám phá thêm</span>
         <span className="hero__mouse" aria-hidden="true">
           <motion.span
             className="hero__mouse-dot"

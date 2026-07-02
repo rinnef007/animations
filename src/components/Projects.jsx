@@ -38,9 +38,9 @@ export default function Projects() {
     <section className="projects" id="project">
       <div className="shell">
         <div className="section-head">
-          <span className="label">Project</span>
+          <span className="label">Dự án</span>
           <a className="see-all" href="#project">
-            See all
+            Xem tất cả
           </a>
         </div>
         <motion.div
@@ -53,7 +53,7 @@ export default function Projects() {
         >
           <motion.img
             src="/images/panorama.jpg"
-            alt="Wide farmland panorama"
+            alt="Toàn cảnh nông trại rộng lớn"
             loading="lazy"
             style={{ y: parallaxY }}
           />
@@ -77,21 +77,21 @@ export default function Projects() {
                 <h3>{project.name}</h3>
                 <p>{project.text}</p>
                 <button className="btn-pill" type="button">
-                  Read more
+                  Xem thêm
                 </button>
               </div>
             </motion.div>
           </AnimatePresence>
           <div className="projects__nav">
             <button type="button" onClick={() => paginate(-1)}>
-              Prev
+              Trước
             </button>
             <button
               type="button"
               className="projects__next"
               onClick={() => paginate(1)}
             >
-              Next <span aria-hidden="true">→</span>
+              Sau <span aria-hidden="true">→</span>
             </button>
           </div>
         </div>

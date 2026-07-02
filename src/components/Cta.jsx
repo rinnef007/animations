@@ -27,8 +27,8 @@ export default function Cta() {
           whileInView="show"
           viewport={{ once: true, margin: '-15% 0px' }}
         >
-          Discover how our advanced tools and transform your fields and boost
-          your yields.
+          Khám phá cách những công cụ tiên tiến của chúng tôi biến đổi cánh
+          đồng và nâng cao năng suất của bạn.
         </motion.h2>
         <motion.p
           variants={fadeUp}
@@ -37,8 +37,8 @@ export default function Cta() {
           viewport={{ once: true, margin: '-15% 0px' }}
           custom={0.15}
         >
-          Ready to Boost Your Yields? Transform Your Farm with Innovative
-          Solutions now!
+          Sẵn sàng tăng năng suất? Hãy chuyển đổi nông trại của bạn với các
+          giải pháp sáng tạo ngay hôm nay!
         </motion.p>
         <motion.form
           className="cta__form"
@@ -51,8 +51,8 @@ export default function Cta() {
         >
           <input
             type="email"
-            placeholder="Your email here"
-            aria-label="Your email"
+            placeholder="Email của bạn"
+            aria-label="Email của bạn"
             required
           />
           <motion.button
@@ -66,7 +66,7 @@ export default function Cta() {
               ease: [0.34, 1.56, 0.64, 1],
             }}
           >
-            Join now
+            Tham gia ngay
           </motion.button>
         </motion.form>
       </div>

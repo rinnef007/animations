@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="footer" ref={ref}>
       <div className="footer__watermark" aria-hidden="true">
-        <motion.span style={{ y: watermarkY }}>Harvest.</motion.span>
+        <motion.span style={{ y: watermarkY }}>VDF.</motion.span>
       </div>
       <div className="shell footer__grid">
         <div className="footer__brand">

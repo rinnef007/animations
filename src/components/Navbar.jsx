@@ -27,7 +27,7 @@ export function LogoMark({ dark = false }) {
           strokeLinecap="round"
         />
       </svg>
-      Harvest
+      VDF
     </span>
   )
 }
@@ -78,12 +78,12 @@ export default function Navbar() {
           ))}
         </nav>
         <a className="nav__cta" href="#contact">
-          Contact us
+          Liên hệ
         </a>
         <button
           type="button"
           className={`nav__burger ${menuOpen ? 'is-open' : ''}`}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
@@ -124,7 +124,7 @@ export default function Navbar() {
                 custom={NAV_LINKS.length}
                 onClick={() => setMenuOpen(false)}
               >
-                Contact us
+                Liên hệ
               </motion.a>
             </nav>
           </motion.div>

@@ -57,7 +57,7 @@ function ServiceItem({ service }) {
           variants={fadeUp}
           custom={0.3}
         >
-          Read more
+          Xem thêm
         </motion.button>
       </div>
       <motion.div
@@ -78,9 +78,9 @@ export default function Services() {
     <section className="services" id="services">
       <div className="shell">
         <div className="section-head">
-          <span className="label">Service</span>
+          <span className="label">Dịch vụ</span>
           <a className="see-all" href="#services">
-            See all
+            Xem tất cả
           </a>
         </div>
         <div className="services__intro">
@@ -90,7 +90,7 @@ export default function Services() {
             viewport={{ once: true, margin: '-15% 0px' }}
             variants={fadeUp}
           >
-            Advanced Services for Efficient Agriculture
+            Dịch vụ tiên tiến cho nền nông nghiệp hiệu quả
           </motion.h2>
           <motion.p
             initial="hidden"
@@ -99,11 +99,12 @@ export default function Services() {
             variants={fadeUp}
             custom={0.15}
           >
-            we offer a full suite of agricultural services designed to empower
-            farmers with the latest innovations and sustainable practices. From
-            precision farming techniques that maximize crop yields to
-            eco-friendly solutions that protect our planet, our comprehensive
-            services are tailored to meet the unique needs of every farm.
+            Chúng tôi cung cấp trọn bộ dịch vụ nông nghiệp được thiết kế để
+            trao cho người nông dân những đổi mới mới nhất và phương pháp canh
+            tác bền vững. Từ kỹ thuật canh tác chính xác giúp tối đa hóa năng
+            suất đến các giải pháp thân thiện với môi trường, dịch vụ toàn
+            diện của chúng tôi được điều chỉnh phù hợp với nhu cầu riêng của
+            từng nông trại.
           </motion.p>
         </div>
         {SERVICES.map((service) => (

@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const TEXT = 'Transforming Agriculture with Smart Solutions For Sustainable Future'
-// "Transforming" stays muted in its final state, everything else turns green.
-const MUTED_FINAL = ['Transforming']
+const TEXT = 'Chuyển đổi nông nghiệp bằng giải pháp thông minh cho tương lai bền vững'
+// Cụm mở đầu "Chuyển đổi" giữ màu xám ở trạng thái cuối, phần còn lại chuyển xanh.
+const MUTED_FINAL_COUNT = 2
 
 function Word({ children, progress, range, finalColor }) {
   const color = useTransform(progress, range, ['#d2d5d2', finalColor])
@@ -34,7 +34,7 @@ export default function RevealHeading() {
                 key={`${word}-${i}`}
                 progress={scrollYProgress}
                 range={[start, end]}
-                finalColor={MUTED_FINAL.includes(word) ? '#b0b4b0' : '#235c48'}
+                finalColor={i < MUTED_FINAL_COUNT ? '#b0b4b0' : '#235c48'}
               >
                 {word}
               </Word>

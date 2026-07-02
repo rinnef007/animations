@@ -43,7 +43,7 @@ export default function About() {
           whileInView="show"
           viewport={{ once: true, margin: '-15% 0px' }}
         >
-          Innovating the Future of&nbsp;Agriculture
+          Đổi mới tương lai của ngành nông nghiệp
         </motion.h2>
         <div>
           <motion.p
@@ -54,15 +54,15 @@ export default function About() {
             viewport={{ once: true, margin: '-15% 0px' }}
             custom={0.15}
           >
-            <span className="dim">Harvest, where tradition meets innovation. </span>
+            <span className="dim">VDF, nơi truyền thống gặp gỡ đổi mới. </span>
             <span className="strong">
-              We are dedicated to revolutionizing the agricultural industry
-              through sustainable practices and the latest technological
-              advancements.
+              Chúng tôi tận tâm cách mạng hóa ngành nông nghiệp thông qua các
+              phương pháp canh tác bền vững và những tiến bộ công nghệ mới
+              nhất.
             </span>
             <span className="dim">
-              {' '}Our commitment is to empower farmers with the tools and
-              knowledge they need to cultivate a thriving future.
+              {' '}Cam kết của chúng tôi là trao cho người nông dân công cụ và
+              kiến thức cần thiết để vun đắp một tương lai thịnh vượng.
             </span>
           </motion.p>
           <div className="about__cards">
