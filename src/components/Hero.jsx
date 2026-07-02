@@ -9,7 +9,7 @@ const fadeUp = {
   }),
 }
 
-export default function Hero({ children }) {
+export default function Hero() {
   return (
     <section className="hero" id="home">
       <motion.img
@@ -21,7 +21,6 @@ export default function Hero({ children }) {
         transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
       />
       <div className="hero__tint" />
-      {children}
       <div className="hero__content">
         <motion.h1
           variants={fadeUp}

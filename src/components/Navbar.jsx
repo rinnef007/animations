@@ -1,4 +1,10 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from 'framer-motion'
 import { NAV_LINKS } from '../data.js'
 
 export function LogoMark({ dark = false }) {
@@ -26,25 +32,104 @@ export function LogoMark({ dark = false }) {
   )
 }
 
+const menuLink = {
+  hidden: { y: 36, opacity: 0 },
+  show: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.55, delay: 0.15 + i * 0.07, ease: [0.22, 1, 0.36, 1] },
+  }),
+}
+
 export default function Navbar() {
+  const [hidden, setHidden] = useState(false)
+  const [solid, setSolid] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious() ?? 0
+    setHidden(latest > previous && latest > 160 && !menuOpen)
+    setSolid(latest > window.innerHeight - 90)
+  })
+
+  // Lock page scroll while the fullscreen menu is open.
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   return (
-    <motion.header
-      className="nav"
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.9, delay: 0.35, ease: 'easeOut' }}
-    >
-      <LogoMark />
-      <nav className="nav__links">
-        {NAV_LINKS.map((link) => (
-          <a key={link.label} href={link.href}>
-            {link.label}
-          </a>
-        ))}
-      </nav>
-      <a className="nav__cta" href="#contact">
-        Contact us
-      </a>
-    </motion.header>
+    <>
+      <motion.header
+        className={`nav ${solid && !menuOpen ? 'nav--solid' : ''}`}
+        initial={{ y: -90 }}
+        animate={{ y: hidden ? '-110%' : 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <LogoMark dark={solid && !menuOpen} />
+        <nav className="nav__links">
+          {NAV_LINKS.map((link) => (
+            <a key={link.label} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <a className="nav__cta" href="#contact">
+          Contact us
+        </a>
+        <button
+          type="button"
+          className={`nav__burger ${menuOpen ? 'is-open' : ''}`}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+        </button>
+      </motion.header>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="mobile-menu"
+            initial={{ opacity: 0, y: '-4%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: '-4%' }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <nav>
+              {NAV_LINKS.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  variants={menuLink}
+                  initial="hidden"
+                  animate="show"
+                  custom={i}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.a
+                className="mobile-menu__cta"
+                href="#contact"
+                variants={menuLink}
+                initial="hidden"
+                animate="show"
+                custom={NAV_LINKS.length}
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact us
+              </motion.a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

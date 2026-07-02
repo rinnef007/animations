@@ -1,15 +1,36 @@
 /* ============ nav ============ */
 
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 26px 56px;
+  padding: 22px 56px;
+  color: #fff;
+  transition: background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease,
+    padding 0.35s ease;
+}
+
+.nav--solid {
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(25, 27, 25, 0.06);
+  padding: 14px 56px;
+}
+
+.nav--solid .logo,
+.nav--solid .logo svg {
+  color: var(--ink);
+}
+
+.nav--solid .nav__cta {
+  background: var(--green);
   color: #fff;
 }
 
@@ -43,11 +64,30 @@
 
 .nav__links a {
   opacity: 0.92;
+  position: relative;
   transition: opacity 0.25s ease;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
 }
 
 .nav__links a:hover {
   opacity: 1;
+}
+
+.nav__links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .nav__cta {
@@ -64,12 +104,100 @@
   transform: scale(1.04);
 }
 
+/* hamburger — hidden on desktop */
+.nav__burger {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  z-index: 60;
+}
+
+.nav__burger span {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.35s ease, top 0.35s ease;
+}
+
+.nav__burger span:first-child {
+  top: 15px;
+}
+
+.nav__burger span:last-child {
+  top: 23px;
+}
+
+.nav__burger.is-open span {
+  color: #fff;
+}
+
+.nav__burger.is-open span:first-child {
+  top: 19px;
+  transform: rotate(45deg);
+}
+
+.nav__burger.is-open span:last-child {
+  top: 19px;
+  transform: rotate(-45deg);
+}
+
+/* fullscreen mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: var(--green-deep);
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.mobile-menu a {
+  color: #f2f3f2;
+  font-size: clamp(34px, 9vw, 52px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 6px 0;
+}
+
+.mobile-menu__cta {
+  margin-top: 28px;
+  align-self: flex-start;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  background: var(--yellow);
+  color: var(--ink) !important;
+  padding: 14px 30px !important;
+  border-radius: 999px;
+}
+
 @media (max-width: 900px) {
   .nav {
-    padding: 18px 24px;
+    padding: 16px 24px;
   }
-  .nav__links {
+  .nav--solid {
+    padding: 12px 24px;
+  }
+  .nav__links,
+  .nav__cta {
     display: none;
+  }
+  .nav__burger {
+    display: block;
   }
 }
 
@@ -361,11 +489,20 @@
   max-width: 520px;
 }
 
+.service__media {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
 .service__media img {
   width: 100%;
   aspect-ratio: 16 / 10.5;
   object-fit: cover;
-  border-radius: var(--radius-card);
+  transition: transform 0.6s ease;
+}
+
+.service__media:hover img {
+  transform: scale(1.05);
 }
 
 @media (max-width: 900px) {
@@ -414,11 +551,20 @@
   align-items: start;
 }
 
+.projects__media {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
 .projects__media img {
   width: 100%;
   aspect-ratio: 16 / 9.5;
   object-fit: cover;
-  border-radius: var(--radius-card);
+  transition: transform 0.6s ease;
+}
+
+.projects__media:hover img {
+  transform: scale(1.05);
 }
 
 .projects__body h3 {
@@ -752,5 +898,35 @@
   .footer__columns {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+}
+
+/* ============ small screens ============ */
+
+@media (max-width: 600px) {
+  .hero__content h1 {
+    font-size: clamp(56px, 17vw, 96px);
+  }
+  .hero__content p {
+    font-size: 14px;
+  }
+  .stat__value {
+    font-size: 28px;
+  }
+  .reveal-heading {
+    padding: 90px 0 30px;
+  }
+  .reveal-heading h2 {
+    font-size: 32px;
+  }
+  .articles__categories button {
+    font-size: 17px;
+    padding: 14px 16px;
+  }
+  .article-card h3 {
+    font-size: 24px;
+  }
+  .cta__content {
+    padding: 70px 20px;
   }
 }

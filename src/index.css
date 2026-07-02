@@ -125,7 +125,6 @@ a {
 .btn-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   padding: 12px 26px;
   border-radius: 999px;
   border: 1px solid var(--muted-2);
@@ -136,8 +135,23 @@ a {
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+.btn-pill::after {
+  content: '→';
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.35s ease, opacity 0.3s ease, margin-left 0.35s ease;
+}
+
 .btn-pill:hover {
   background: var(--green);
   border-color: var(--green);
   color: #fff;
+}
+
+.btn-pill:hover::after {
+  max-width: 20px;
+  opacity: 1;
+  margin-left: 10px;
 }

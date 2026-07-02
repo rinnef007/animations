@@ -30,9 +30,8 @@ export default function App() {
 
   return (
     <div className="page">
-      <Hero>
-        <Navbar />
-      </Hero>
+      <Navbar />
+      <Hero />
       <Stats />
       <About />
       <RevealHeading />
