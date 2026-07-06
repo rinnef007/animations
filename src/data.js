@@ -36,6 +36,20 @@ export const SERVICES = [
     text: 'VDF INVEST tập trung nguồn lực vào các dự án năng lượng tái tạo (điện gió, điện mặt trời), hạ tầng giao thông và các công trình trọng điểm, hướng tới hiệu quả dài hạn và sự phát triển bền vững của đất nước.',
     image: '/images/wind.jpg',
     reverse: false,
+    details: [
+      {
+        title: 'Năng lượng',
+        text: 'Đầu tư mạnh vào năng lượng tái tạo, đặc biệt là điện gió và điện mặt trời, với cam kết sử dụng tài nguyên bền vững và giảm thiểu ô nhiễm môi trường.',
+      },
+      {
+        title: 'Hạ tầng giao thông',
+        text: 'Rót vốn vào các dự án cầu đường và công trình giao thông chiến lược quốc gia, nâng cao khả năng kết nối và tạo động lực phát triển kinh tế liên vùng.',
+      },
+      {
+        title: 'Dự án xây dựng',
+        text: 'Đầu tư phát triển khu đô thị, khu công nghiệp cùng các công trình công cộng và nhà ở, dựa trên nền tảng kinh nghiệm kỹ thuật vững chắc.',
+      },
+    ],
   },
   {
     number: '02',
@@ -43,6 +57,24 @@ export const SERVICES = [
     text: 'Chúng tôi cung cấp dịch vụ quản lý dự án, tư vấn thiết kế, giám sát và thi công xây dựng với đội ngũ kỹ sư giàu kinh nghiệm, đảm bảo tiến độ và chất lượng cho từng công trình.',
     image: '/images/construction.jpg',
     reverse: true,
+    details: [
+      {
+        title: 'Quản lý dự án',
+        text: 'Điều phối tổng thể dự án từ khâu chuẩn bị đến bàn giao, kiểm soát chặt chẽ tiến độ, chi phí và chất lượng công trình.',
+      },
+      {
+        title: 'Tư vấn thiết kế',
+        text: 'Đưa ra giải pháp thiết kế tối ưu về công năng, thẩm mỹ và chi phí, phù hợp quy chuẩn và đặc thù của từng công trình.',
+      },
+      {
+        title: 'Tư vấn giám sát',
+        text: 'Giám sát độc lập quá trình thi công, đảm bảo công trình tuân thủ thiết kế, tiêu chuẩn kỹ thuật và an toàn lao động.',
+      },
+      {
+        title: 'Thi công xây dựng',
+        text: 'Trực tiếp thi công với đội ngũ kỹ sư, công nhân lành nghề và thiết bị hiện đại, cam kết bàn giao đúng tiến độ.',
+      },
+    ],
   },
   {
     number: '03',
@@ -50,6 +82,16 @@ export const SERVICES = [
     text: 'Hoạt động thương mại, phân phối bán lẻ và các chương trình đào tạo chuyên môn giúp VDF INVEST mở rộng hệ sinh thái dịch vụ, đồng hành lâu dài cùng đối tác và khách hàng.',
     image: '/images/engineers.jpg',
     reverse: false,
+    details: [
+      {
+        title: 'Thương mại',
+        text: 'Cung cấp dịch vụ, phân phối và bán lẻ hàng hóa chất lượng, đặt lợi ích khách hàng làm trung tâm với phong cách phục vụ chuyên nghiệp.',
+      },
+      {
+        title: 'Đào tạo chuyên môn',
+        text: 'Tổ chức các chương trình đào tạo nâng cao kiến thức, kỹ năng cho người lao động, đáp ứng yêu cầu ngày càng cao của thị trường.',
+      },
+    ],
   },
 ]
 

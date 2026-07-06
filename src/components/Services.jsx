@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { SERVICES } from '../data.js'
 
 const fadeUp = {
@@ -11,6 +12,8 @@ const fadeUp = {
 }
 
 function ServiceItem({ service }) {
+  const [open, setOpen] = useState(false)
+
   return (
     <div className={`service ${service.reverse ? 'service--reverse' : ''}`}>
       <div className="service__body">
@@ -49,16 +52,51 @@ function ServiceItem({ service }) {
           {service.text}
         </motion.p>
         <motion.button
-          className="btn-pill"
+          className={`btn-pill service__toggle ${open ? 'is-open' : ''}`}
           type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((value) => !value)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-12% 0px' }}
           variants={fadeUp}
           custom={0.3}
         >
-          Xem thêm
+          {open ? 'Thu gọn' : 'Xem thêm'}
         </motion.button>
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              className="service__details"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="service__details-inner">
+                {service.details.map((detail, i) => (
+                  <motion.div
+                    className="service__detail"
+                    key={detail.title}
+                    initial={{ y: 18, opacity: 0 }}
+                    animate={{
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        duration: 0.5,
+                        delay: 0.2 + i * 0.09,
+                        ease: [0.22, 1, 0.36, 1],
+                      },
+                    }}
+                  >
+                    <h4>{detail.title}</h4>
+                    <p>{detail.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       <motion.div
         className="service__media"
