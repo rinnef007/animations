@@ -781,6 +781,18 @@
   overflow: hidden;
 }
 
+.article-card__clickable {
+  cursor: pointer;
+}
+
+.article-card__title {
+  transition: color 0.3s ease;
+}
+
+.article-card__title:hover {
+  color: var(--primary);
+}
+
 .article-card__date {
   display: inline-block;
   font-size: 13.5px;
@@ -823,6 +835,15 @@
   max-height: 92vh;
   overflow-y: auto;
   border-radius: 18px;
+  /* ẩn thanh cuộn nhưng vẫn cuộn được */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reader__panel::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .reader__close {
@@ -900,6 +921,24 @@
   font-size: 16px;
   line-height: 1.8;
   color: var(--ink-soft);
+}
+
+.reader__content figure {
+  margin: 26px 0 6px;
+}
+
+.reader__content figure img {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.reader__content figcaption {
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--muted);
+  text-align: center;
 }
 
 @media (max-width: 900px) {

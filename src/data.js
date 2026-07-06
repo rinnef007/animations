@@ -188,10 +188,14 @@ export const ARTICLES = {
         {
           heading: 'Các công trình VDF đã triển khai',
           text: 'VDF đã lắp đặt hệ thống điện mặt trời áp mái tại chợ Bỉm Sơn và chợ Cống (tỉnh Thanh Hóa), đồng thời triển khai hệ thống điện mặt trời tự sản tự tiêu tại các trạm dịch vụ V23, V52 và V77 trên tuyến cao tốc Hà Nội – Hải Phòng, giúp các công trình chủ động nguồn điện và giảm chi phí vận hành.',
+          image: '/images/solar.jpg',
+          caption: 'Hệ thống điện mặt trời áp mái tại công trình do VDF triển khai.',
         },
         {
           heading: 'Chất lượng và an toàn là ưu tiên hàng đầu',
           text: 'Trong quá trình lắp đặt và vận hành, VDF chú trọng kiểm soát chất lượng thiết bị, tuân thủ quy trình an toàn và bảo trì định kỳ, đảm bảo hệ thống hoạt động hiệu quả, ổn định trong dài hạn.',
+          image: '/images/engineers.jpg',
+          caption: 'Kỹ sư kiểm tra hệ thống trong quá trình lắp đặt và vận hành.',
         },
         {
           heading: 'Định hướng phát triển',
@@ -212,6 +216,8 @@ export const ARTICLES = {
         {
           heading: 'Các hạng mục chính',
           text: 'Dự án bao gồm mở rộng mặt bằng khai thác, cải tạo hạ tầng kỹ thuật, nâng cấp khu dịch vụ tổng hợp và bổ sung tiện ích phục vụ hành khách, hướng tới trải nghiệm dừng nghỉ thuận tiện và an toàn hơn.',
+          image: '/images/station.jpg',
+          caption: 'Khu vực trạm dịch vụ sau khi được mở rộng và cải tạo.',
         },
         {
           heading: 'Giá trị mang lại',
@@ -242,6 +248,8 @@ export const ARTICLES = {
         {
           heading: 'Điện mặt trời áp mái',
           text: 'Hệ thống điện mặt trời áp mái cho phép công trình tự chủ một phần nguồn điện, giảm chi phí vận hành và phát thải — mô hình VDF đã áp dụng thực tế tại các công trình chợ và trạm dịch vụ.',
+          image: '/images/solar.jpg',
+          caption: 'Tấm quang năng áp mái — giải pháp phổ biến cho công trình thương mại.',
         },
         {
           heading: 'Lợi ích dài hạn',
@@ -262,6 +270,8 @@ export const ARTICLES = {
         {
           heading: 'Dư địa cho nhà đầu tư',
           text: 'Điện gió và điện mặt trời quy mô trang trại còn nhiều tiềm năng tại các vùng có bức xạ và gió tốt. Chính sách khuyến khích năng lượng sạch tạo nền tảng cho các dự án dài hạn.',
+          image: '/images/wind.jpg',
+          caption: 'Điện gió — một trong những trụ cột của chuyển dịch năng lượng.',
         },
         {
           heading: 'Những yếu tố cần cân nhắc',
@@ -296,6 +306,8 @@ export const ARTICLES = {
         {
           heading: '3. Giải pháp thiết kế',
           text: 'Thiết kế tối ưu ngay từ đầu giảm thiểu phát sinh khi thi công. Chi phí điều chỉnh thiết kế giữa chừng thường cao gấp nhiều lần chi phí tư vấn ban đầu.',
+          image: '/images/construction.jpg',
+          caption: 'Công trường xây dựng — nơi mọi quyết định thiết kế thể hiện thành chi phí.',
         },
         {
           heading: '4. Tiến độ thi công',
@@ -324,6 +336,8 @@ export const ARTICLES = {
         {
           heading: 'Kiểm soát chất lượng',
           text: 'Nghiệm thu theo từng công đoạn thay vì dồn về cuối, kết hợp nhật ký thi công đầy đủ, giúp phát hiện và xử lý sai sót ngay khi còn dễ khắc phục.',
+          image: '/images/engineers.jpg',
+          caption: 'Kỹ sư rà soát hồ sơ nghiệm thu ngay tại công trường.',
         },
         {
           heading: 'Bám sát tiến độ',
@@ -346,6 +360,8 @@ export const ARTICLES = {
         {
           heading: 'Nội dung chính của Đại hội',
           text: 'Đại hội đã nghe và thông qua báo cáo kết quả hoạt động, báo cáo tài chính, phương án phân phối lợi nhuận cùng kế hoạch kinh doanh cho năm tài chính tiếp theo.',
+          image: '/images/meeting.jpg',
+          caption: 'Phiên họp Đại hội đồng cổ đông thường niên.',
         },
         {
           heading: 'Định hướng năm tới',
@@ -366,6 +382,8 @@ export const ARTICLES = {
         {
           heading: 'Ba trụ cột chiến lược',
           text: 'Đầu tư năng lượng tái tạo và hạ tầng giao thông; dịch vụ xây dựng trọn gói từ tư vấn thiết kế đến thi công; và hoạt động thương mại – dịch vụ – đào tạo bổ trợ cho hệ sinh thái.',
+          image: '/images/hero-infra.jpg',
+          caption: 'Hạ tầng giao thông — một trong ba trụ cột chiến lược của VDF INVEST.',
         },
         {
           heading: 'Tầm nhìn',

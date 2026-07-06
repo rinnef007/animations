@@ -51,7 +51,13 @@ function Reader({ article, category, onClose }) {
           {article.body.map((section, i) => (
             <section key={i}>
               {section.heading && <h3>{section.heading}</h3>}
-              <p>{section.text}</p>
+              {section.text && <p>{section.text}</p>}
+              {section.image && (
+                <figure>
+                  <img src={section.image} alt={section.caption || ''} loading="lazy" />
+                  {section.caption && <figcaption>{section.caption}</figcaption>}
+                </figure>
+              )}
             </section>
           ))}
         </div>
@@ -120,11 +126,28 @@ export default function Articles() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <div className="article-card__media">
+                    <div
+                      className="article-card__media article-card__clickable"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Đọc bài: ${article.title}`}
+                      onClick={() => setReading(article)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault()
+                          setReading(article)
+                        }
+                      }}
+                    >
                       <img src={article.image} alt={article.title} loading="lazy" />
                     </div>
                     <span className="article-card__date">{article.date}</span>
-                    <h3>{article.title}</h3>
+                    <h3
+                      className="article-card__clickable article-card__title"
+                      onClick={() => setReading(article)}
+                    >
+                      {article.title}
+                    </h3>
                     <p>{article.excerpt}</p>
                     <button
                       type="button"
