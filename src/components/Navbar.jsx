@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import {
   AnimatePresence,
   motion,
@@ -25,16 +26,24 @@ const menuLink = {
 }
 
 export default function Navbar() {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
   const [hidden, setHidden] = useState(false)
-  const [solid, setSolid] = useState(false)
+  const [scrolledPastHero, setScrolledPastHero] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { scrollY } = useScroll()
+
+  // Trang con không có hero tối nên navbar luôn ở trạng thái nền trắng.
+  const solid = !isHome || scrolledPastHero
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = scrollY.getPrevious() ?? 0
     setHidden(latest > previous && latest > 160 && !menuOpen)
-    setSolid(latest > window.innerHeight - 90)
+    setScrolledPastHero(latest > window.innerHeight - 90)
   })
+
+  // Link neo (#...) hoạt động từ trang con bằng cách quay về trang chủ trước.
+  const anchor = (href) => (isHome ? href : `/${href}`)
 
   // Lock page scroll while the fullscreen menu is open.
   useEffect(() => {
@@ -52,15 +61,17 @@ export default function Navbar() {
         animate={{ y: hidden ? '-110%' : 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <LogoMark dark={solid && !menuOpen} />
+        <Link to="/" aria-label="Về trang chủ">
+          <LogoMark dark={solid && !menuOpen} />
+        </Link>
         <nav className="nav__links">
           {NAV_LINKS.map((link) => (
-            <a key={link.label} href={link.href}>
+            <a key={link.label} href={anchor(link.href)}>
               {link.label}
             </a>
           ))}
         </nav>
-        <a className="nav__cta" href="#contact">
+        <a className="nav__cta" href={anchor('#contact')}>
           Liên hệ
         </a>
         <button
@@ -88,7 +99,7 @@ export default function Navbar() {
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.label}
-                  href={link.href}
+                  href={anchor(link.href)}
                   variants={menuLink}
                   initial="hidden"
                   animate="show"
@@ -100,7 +111,7 @@ export default function Navbar() {
               ))}
               <motion.a
                 className="mobile-menu__cta"
-                href="#contact"
+                href={anchor('#contact')}
                 variants={menuLink}
                 initial="hidden"
                 animate="show"

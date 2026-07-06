@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import Lenis from 'lenis'
 import './App.css'
 import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import Stats from './components/Stats.jsx'
-import About from './components/About.jsx'
-import RevealHeading from './components/RevealHeading.jsx'
-import Services from './components/Services.jsx'
-import Projects from './components/Projects.jsx'
-import Articles from './components/Articles.jsx'
-import Cta from './components/Cta.jsx'
 import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import ServicesPage from './pages/ServicesPage.jsx'
+import ProjectsPage from './pages/ProjectsPage.jsx'
+import NewsPage from './pages/NewsPage.jsx'
 
 export default function App() {
-  // Smooth scrolling (Lenis).
+  const location = useLocation()
+
+  // Cuộn mượt (Lenis).
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true })
     let rafId
@@ -31,14 +31,14 @@ export default function App() {
   return (
     <div className="page">
       <Navbar />
-      <Hero />
-      <Stats />
-      <About />
-      <RevealHeading />
-      <Services />
-      <Projects />
-      <Articles />
-      <Cta />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/linh-vuc" element={<ServicesPage />} />
+          <Route path="/du-an" element={<ProjectsPage />} />
+          <Route path="/tin-tuc" element={<NewsPage />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
     </div>
   )

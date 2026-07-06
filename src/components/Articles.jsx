@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
 
@@ -7,7 +8,7 @@ const pad = (n) => String(n).padStart(2, '0')
 // dd/mm/yyyy -> yyyymmdd để so sánh
 const dateKey = (d) => (d || '').split('/').reverse().join('')
 
-function Reader({ article, category, onClose }) {
+export function Reader({ article, category, onClose }) {
   useEffect(() => {
     const onKey = (event) => {
       if (event.key === 'Escape') onClose()
@@ -104,9 +105,9 @@ export default function Articles() {
       <div className="shell">
         <div className="section-head">
           <span className="label">Tin tức & sự kiện</span>
-          <a className="see-all" href="#articles">
+          <Link className="see-all" to="/tin-tuc">
             Xem tất cả
-          </a>
+          </Link>
         </div>
         <div className="articles__grid">
           <motion.ul

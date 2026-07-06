@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { PROJECTS } from '../data.js'
 
@@ -48,9 +49,9 @@ export default function Projects() {
       <div className="shell">
         <div className="section-head">
           <span className="label">Dự án</span>
-          <a className="see-all" href="#project">
+          <Link className="see-all" to="/du-an">
             Xem tất cả
-          </a>
+          </Link>
         </div>
         <motion.div
           className="projects__banner"

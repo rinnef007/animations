@@ -1,3 +1,121 @@
+/* ============ page transition curtain ============ */
+
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--primary-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.curtain img {
+  height: 64px;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 12px;
+}
+
+/* ============ subpages ============ */
+
+.subpage {
+  min-height: 70vh;
+  padding-bottom: 40px;
+}
+
+.page-hero {
+  padding: 150px 0 44px;
+  border-bottom: 1px solid var(--muted-2);
+  margin-bottom: 24px;
+}
+
+.page-hero__crumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.page-hero__crumb a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.page-hero__crumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.page-hero h1 {
+  font-size: clamp(38px, 4.6vw, 62px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.page-hero p {
+  margin-top: 18px;
+  max-width: 640px;
+  color: var(--muted);
+  font-size: 16.5px;
+  line-height: 1.7;
+}
+
+/* tabs danh mục trên trang tin tức */
+.news-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 0 40px;
+}
+
+.news-tabs button {
+  background: none;
+  border: 1px solid var(--muted-2);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.news-tabs button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.news-tabs button.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px 48px;
+  padding-bottom: 40px;
+}
+
+.news-grid .article-card {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .page-hero {
+    padding-top: 120px;
+  }
+}
+
 /* ============ nav ============ */
 
 .nav {

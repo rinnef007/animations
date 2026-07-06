@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SERVICES } from '../data.js'
 
@@ -117,9 +118,9 @@ export default function Services() {
       <div className="shell">
         <div className="section-head">
           <span className="label">Lĩnh vực hoạt động</span>
-          <a className="see-all" href="#services">
+          <Link className="see-all" to="/linh-vuc">
             Xem tất cả
-          </a>
+          </Link>
         </div>
         <div className="services__intro">
           <motion.h2
