@@ -1,6 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
+
+const PAGE_SIZE = 3
+const pad = (n) => String(n).padStart(2, '0')
+// dd/mm/yyyy -> yyyymmdd để so sánh
+const dateKey = (d) => (d || '').split('/').reverse().join('')
 
 function Reader({ article, category, onClose }) {
   useEffect(() => {
@@ -68,8 +73,31 @@ function Reader({ article, category, onClose }) {
 
 export default function Articles() {
   const [category, setCategory] = useState('Mới nhất')
+  const [page, setPage] = useState(0)
   const [reading, setReading] = useState(null)
-  const articles = ARTICLES[category]
+
+  // 'Mới nhất' tổng hợp mọi bài viết từ các danh mục, mới nhất trước.
+  const allArticles = useMemo(() => {
+    const seen = new Set()
+    const list = []
+    for (const cat of ARTICLE_CATEGORIES) {
+      for (const article of ARTICLES[cat] ?? []) {
+        if (!seen.has(article.title)) {
+          seen.add(article.title)
+          list.push(article)
+        }
+      }
+    }
+    return list.sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)))
+  }, [])
+
+  const articles = category === 'Mới nhất' ? allArticles : ARTICLES[category]
+  const totalPages = Math.ceil(articles.length / PAGE_SIZE)
+  const visible = articles.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE)
+
+  const goPage = (dir) => {
+    setPage((current) => (current + dir + totalPages) % totalPages)
+  }
 
   return (
     <section className="articles" id="articles">
@@ -93,7 +121,10 @@ export default function Articles() {
                 <button
                   type="button"
                   className={item === category ? 'is-active' : ''}
-                  onClick={() => setCategory(item)}
+                  onClick={() => {
+                    setCategory(item)
+                    setPage(0)
+                  }}
                 >
                   <span className="dot" aria-hidden="true" />
                   {item}
@@ -104,7 +135,7 @@ export default function Articles() {
           <div className="articles__list">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
-                key={category}
+                key={`${category}-${page}`}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{
                   opacity: 1,
@@ -113,7 +144,7 @@ export default function Articles() {
                 }}
                 exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
               >
-                {articles.map((article, i) => (
+                {visible.map((article, i) => (
                   <motion.article
                     className="article-card"
                     key={article.title}
@@ -160,6 +191,30 @@ export default function Articles() {
                 ))}
               </motion.div>
             </AnimatePresence>
+            {totalPages > 1 && (
+              <div className="articles__nav">
+                <span className="articles__counter">
+                  {pad(page + 1)} <span>/ {pad(totalPages)}</span>
+                </span>
+                <div className="articles__arrows">
+                  <button
+                    type="button"
+                    aria-label="Trang trước"
+                    onClick={() => goPage(-1)}
+                  >
+                    Trước
+                  </button>
+                  <button
+                    type="button"
+                    className="articles__next"
+                    aria-label="Trang sau"
+                    onClick={() => goPage(1)}
+                  >
+                    Sau <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

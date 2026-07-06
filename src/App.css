@@ -781,6 +781,52 @@
   overflow: hidden;
 }
 
+/* phân trang tin tức — cùng phong cách với phần Dự án */
+.articles__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--muted-2);
+  padding: 24px 0 10px;
+  margin-top: 8px;
+}
+
+.articles__counter {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.articles__counter span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.articles__arrows {
+  display: flex;
+  gap: 28px;
+}
+
+.articles__nav button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.articles__nav button:hover {
+  color: var(--ink);
+}
+
+.articles__nav .articles__next {
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .article-card__clickable {
   cursor: pointer;
 }
