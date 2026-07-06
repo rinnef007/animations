@@ -95,21 +95,70 @@ export const SERVICES = [
   },
 ]
 
+// Thông tin chi tiết dự án mang tính minh họa — cập nhật theo hồ sơ thực tế tại đây.
 export const PROJECTS = [
   {
     name: 'Trạm dịch vụ V52',
+    tag: 'Xây dựng · Hạ tầng dịch vụ',
     text: 'VDF INVEST hoàn thành công trình mở rộng và cải tạo hạ tầng trạm dịch vụ V52, nâng cao năng lực phục vụ trên tuyến cao tốc và mang đến điểm dừng nghỉ hiện đại, an toàn, tiện nghi cho người dân.',
     image: '/images/station.jpg',
+    banner: '/images/hero-infra.jpg',
+    details: [
+      {
+        title: 'Hạng mục',
+        text: 'Mở rộng mặt bằng, cải tạo hạ tầng kỹ thuật và nâng cấp khu dịch vụ tổng hợp phục vụ tuyến cao tốc.',
+      },
+      {
+        title: 'Vai trò của VDF',
+        text: 'Chủ đầu tư kiêm quản lý dự án, trực tiếp điều phối thi công, giám sát và nghiệm thu công trình.',
+      },
+      {
+        title: 'Trạng thái',
+        text: 'Đã hoàn thành và đưa vào vận hành năm 2026.',
+      },
+    ],
   },
   {
     name: 'Năng lượng tái tạo',
+    tag: 'Đầu tư · Năng lượng',
     text: 'Danh mục đầu tư điện gió và điện mặt trời của VDF INVEST góp phần đa dạng hóa nguồn cung năng lượng, giảm phát thải và thúc đẩy quá trình chuyển dịch năng lượng xanh tại Việt Nam.',
     image: '/images/solar.jpg',
+    banner: '/images/wind.jpg',
+    details: [
+      {
+        title: 'Hạng mục',
+        text: 'Danh mục dự án điện gió và điện mặt trời quy mô trang trại tại các vùng giàu tiềm năng.',
+      },
+      {
+        title: 'Định hướng',
+        text: 'Ưu tiên công nghệ hiệu suất cao, sử dụng đất hiệu quả và giảm thiểu tác động môi trường.',
+      },
+      {
+        title: 'Trạng thái',
+        text: 'Đang nghiên cứu và phát triển danh mục đầu tư.',
+      },
+    ],
   },
   {
     name: 'Hạ tầng giao thông',
+    tag: 'Đầu tư · Giao thông',
     text: 'Tham gia đầu tư và xây dựng các công trình cầu đường trọng điểm, VDF INVEST góp phần tăng cường kết nối vùng và tạo động lực phát triển kinh tế – xã hội cho các địa phương.',
-    image: '/images/bridge.jpg',
+    image: '/images/hero-infra.jpg',
+    banner: '/images/bridge.jpg',
+    details: [
+      {
+        title: 'Hạng mục',
+        text: 'Các công trình cầu, đường và nút giao thuộc những dự án giao thông trọng điểm.',
+      },
+      {
+        title: 'Vai trò của VDF',
+        text: 'Nhà đầu tư đồng hành cùng đối tác thi công và đơn vị quản lý vận hành.',
+      },
+      {
+        title: 'Trạng thái',
+        text: 'Đang triển khai theo từng giai đoạn.',
+      },
+    ],
   },
 ]
 
