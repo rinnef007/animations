@@ -14,7 +14,7 @@ const fadeUp = {
 
 export default function ProjectsPage() {
   return (
-    <PageTransition>
+    <PageTransition title="Dự án">
       <main className="subpage">
         <div className="shell">
           <header className="page-hero">

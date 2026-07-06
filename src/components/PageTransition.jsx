@@ -10,8 +10,15 @@ const EASE = [0.76, 0, 0.24, 1]
  * - Khi trang mới xuất hiện: màn (curtain ra) đang che sẵn rồi trượt lên biến mất.
  * Đồng thời xử lý cuộn: về đầu trang, hoặc cuộn tới mục neo (#...) nếu có.
  */
-export default function PageTransition({ children }) {
+const BASE_TITLE = 'VDF INVEST — Đầu tư & Phát triển'
+
+export default function PageTransition({ title, children }) {
   const location = useLocation()
+
+  // Tiêu đề tab theo từng trang.
+  useEffect(() => {
+    document.title = title ? `${title} — VDF INVEST` : BASE_TITLE
+  }, [title])
   // Hash lúc mount đã được xử lý bằng timer bên dưới (kèm chống chạy lặp
   // của StrictMode) — chỉ cuộn ngay khi hash thay đổi sau đó.
   const handledHash = useRef(location.hash)

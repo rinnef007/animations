@@ -37,7 +37,7 @@ export default function NewsPage() {
   const articles = category === 'Mới nhất' ? allArticles : ARTICLES[category]
 
   return (
-    <PageTransition>
+    <PageTransition title="Tin tức & sự kiện">
       <main className="subpage">
         <div className="shell">
           <header className="page-hero">

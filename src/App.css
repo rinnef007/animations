@@ -65,6 +65,49 @@
   line-height: 1.7;
 }
 
+/* ============ trang 404 ============ */
+
+.notfound {
+  display: flex;
+  align-items: center;
+  min-height: 78vh;
+}
+
+.notfound .shell {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.notfound__code {
+  display: block;
+  font-size: clamp(90px, 16vw, 200px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--muted-2);
+}
+
+.notfound h1 {
+  margin-top: 10px;
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.notfound p {
+  margin-top: 16px;
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.notfound__btn {
+  display: inline-flex;
+  margin-top: 32px;
+}
+
 /* tabs danh mục trên trang tin tức */
 .news-tabs {
   display: flex;

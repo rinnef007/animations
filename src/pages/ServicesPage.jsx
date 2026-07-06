@@ -14,7 +14,7 @@ const fadeUp = {
 
 export default function ServicesPage() {
   return (
-    <PageTransition>
+    <PageTransition title="Lĩnh vực hoạt động">
       <main className="subpage">
         <div className="shell">
           <header className="page-hero">

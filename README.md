@@ -37,3 +37,14 @@ npm install
 npm run dev      # http://localhost:5173
 npm run build    # production build in dist/
 ```
+
+## Deploy (SPA fallback)
+
+The site uses client-side routing (`/linh-vuc`, `/du-an`, `/tin-tuc`), so
+the host must serve `index.html` for every path:
+
+- **Vercel** — handled by `vercel.json` (already included).
+- **Netlify** — handled by `public/_redirects` (already included).
+- **Nginx** — add `try_files $uri $uri/ /index.html;` to the location block.
+- **GitHub Pages** — no native SPA fallback; either copy `index.html` to
+  `404.html` after build, or prefer Vercel/Netlify.
