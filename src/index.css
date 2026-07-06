@@ -5,9 +5,9 @@
   --ink-soft: #4c524e;
   --muted: #b9bdba;
   --muted-2: #d8dbd8;
-  --green: #235c48;
-  --green-deep: #1c4a3a;
-  --mint: #eaf3f0;
+  --primary: #1e4e79;
+  --primary-deep: #163a5c;
+  --tint: #eaf0f7;
   --yellow: #e9f65a;
   --radius-card: 14px;
   --font: 'Be Vietnam Pro', 'Helvetica Neue', Arial, sans-serif;
@@ -98,7 +98,7 @@ a {
 }
 
 .section-head .see-all {
-  color: var(--green);
+  color: var(--primary);
   font-weight: 600;
   font-size: 15px;
   position: relative;
@@ -129,7 +129,7 @@ a {
   border-radius: 999px;
   border: 1px solid var(--muted-2);
   background: transparent;
-  color: var(--green);
+  color: var(--primary);
   font-size: 15px;
   font-weight: 500;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -145,8 +145,8 @@ a {
 }
 
 .btn-pill:hover {
-  background: var(--green);
-  border-color: var(--green);
+  background: var(--primary);
+  border-color: var(--primary);
   color: #fff;
 }
 

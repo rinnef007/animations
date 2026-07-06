@@ -21,7 +21,7 @@ export function LogoMark({ dark = false }) {
         />
         <path
           d="M5 21c7-2 15-8 22-10"
-          stroke={dark ? '#f2f3f2' : '#3d7d54'}
+          stroke={dark ? '#f2f3f2' : '#5b8ec7'}
           strokeWidth="2.4"
           fill="none"
           strokeLinecap="round"

@@ -34,7 +34,7 @@ export default function RevealHeading() {
                 key={`${word}-${i}`}
                 progress={scrollYProgress}
                 range={[start, end]}
-                finalColor={i < MUTED_FINAL_COUNT ? '#b0b4b0' : '#235c48'}
+                finalColor={i < MUTED_FINAL_COUNT ? '#b0b4b0' : '#1e4e79'}
               >
                 {word}
               </Word>

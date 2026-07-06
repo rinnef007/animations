@@ -30,7 +30,7 @@
 }
 
 .nav--solid .nav__cta {
-  background: var(--green);
+  background: var(--primary);
   color: #fff;
 }
 
@@ -152,7 +152,7 @@
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: var(--green-deep);
+  background: var(--primary-deep);
   display: flex;
   align-items: center;
   min-height: 100dvh;
@@ -226,9 +226,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(12, 24, 16, 0.28) 0%,
-    rgba(12, 24, 16, 0.08) 40%,
-    rgba(12, 24, 16, 0.22) 100%
+    rgba(10, 18, 28, 0.28) 0%,
+    rgba(10, 18, 28, 0.08) 40%,
+    rgba(10, 18, 28, 0.22) 100%
   );
 }
 
@@ -367,7 +367,7 @@
 }
 
 .feature-card {
-  background: var(--mint);
+  background: var(--tint);
   border-radius: var(--radius-card);
   padding: 22px 20px;
   min-height: 190px;
@@ -378,7 +378,7 @@
 }
 
 .feature-card__icon {
-  color: var(--green);
+  color: var(--primary);
 }
 
 .feature-card p {
@@ -462,7 +462,7 @@
 }
 
 .service__number span:first-child {
-  color: var(--green);
+  color: var(--primary);
   font-size: 15px;
   font-weight: 500;
 }
@@ -664,8 +664,8 @@
 }
 
 .articles__categories .is-active {
-  background: var(--mint);
-  color: var(--green);
+  background: var(--tint);
+  color: var(--primary);
 }
 
 .articles__categories .is-active .dot {
@@ -713,7 +713,7 @@
 }
 
 .article-card__link {
-  color: var(--green);
+  color: var(--primary);
   font-weight: 500;
   font-size: 15.5px;
   text-decoration: underline;
@@ -753,7 +753,7 @@
 .cta__tint {
   position: absolute;
   inset: 0;
-  background: rgba(14, 26, 18, 0.32);
+  background: rgba(11, 20, 32, 0.32);
 }
 
 .cta__content {
@@ -888,7 +888,7 @@
 }
 
 .footer__column a:hover {
-  color: var(--green);
+  color: var(--primary);
 }
 
 @media (max-width: 900px) {
