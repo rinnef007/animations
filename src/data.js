@@ -1,9 +1,9 @@
 export const NAV_LINKS = [
-  { label: 'Trang chủ', href: '#home' },
-  { label: 'Về chúng tôi', href: '#about' },
-  { label: 'Lĩnh vực', href: '#services' },
-  { label: 'Dự án', href: '#project' },
-  { label: 'Tin tức', href: '#articles' },
+  { label: 'Trang chủ', to: '/' },
+  { label: 'Về chúng tôi', to: '/#about' },
+  { label: 'Lĩnh vực', to: '/linh-vuc' },
+  { label: 'Dự án', to: '/du-an' },
+  { label: 'Tin tức', to: '/tin-tuc' },
 ]
 
 // Số liệu minh họa — thay bằng số liệu chính thức của công ty tại đây.

@@ -13,9 +13,11 @@ import NewsPage from './pages/NewsPage.jsx'
 export default function App() {
   const location = useLocation()
 
-  // Cuộn mượt (Lenis).
+  // Cuộn mượt (Lenis). Đưa instance lên window để PageTransition cuộn tới
+  // mục neo qua Lenis (tránh xung đột với animation cuộn đang chạy).
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true })
+    window.__lenis = lenis
     let rafId
     const raf = (time) => {
       lenis.raf(time)
@@ -25,6 +27,7 @@ export default function App() {
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
+      delete window.__lenis
     }
   }, [])
 

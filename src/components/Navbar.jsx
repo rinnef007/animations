@@ -8,6 +8,8 @@ import {
 } from 'framer-motion'
 import { NAV_LINKS } from '../data.js'
 
+const MotionLink = motion.create(Link)
+
 export function LogoMark({ dark = false }) {
   return (
     <span className={`logo ${dark ? 'logo--dark' : ''}`}>
@@ -42,9 +44,6 @@ export default function Navbar() {
     setScrolledPastHero(latest > window.innerHeight - 90)
   })
 
-  // Link neo (#...) hoạt động từ trang con bằng cách quay về trang chủ trước.
-  const anchor = (href) => (isHome ? href : `/${href}`)
-
   // Lock page scroll while the fullscreen menu is open.
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -66,14 +65,14 @@ export default function Navbar() {
         </Link>
         <nav className="nav__links">
           {NAV_LINKS.map((link) => (
-            <a key={link.label} href={anchor(link.href)}>
+            <Link key={link.label} to={link.to}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a className="nav__cta" href={anchor('#contact')}>
+        <Link className="nav__cta" to="/#contact">
           Liên hệ
-        </a>
+        </Link>
         <button
           type="button"
           className={`nav__burger ${menuOpen ? 'is-open' : ''}`}
@@ -97,9 +96,9 @@ export default function Navbar() {
           >
             <nav>
               {NAV_LINKS.map((link, i) => (
-                <motion.a
+                <MotionLink
                   key={link.label}
-                  href={anchor(link.href)}
+                  to={link.to}
                   variants={menuLink}
                   initial="hidden"
                   animate="show"
@@ -107,11 +106,11 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                </motion.a>
+                </MotionLink>
               ))}
-              <motion.a
+              <MotionLink
                 className="mobile-menu__cta"
-                href={anchor('#contact')}
+                to="/#contact"
                 variants={menuLink}
                 initial="hidden"
                 animate="show"
@@ -119,7 +118,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
               >
                 Liên hệ
-              </motion.a>
+              </MotionLink>
             </nav>
           </motion.div>
         )}
