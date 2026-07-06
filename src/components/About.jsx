@@ -2,24 +2,26 @@ import { motion } from 'framer-motion'
 import { FEATURES } from '../data.js'
 
 const ICONS = {
-  sprout: (
+  energy: (
     <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 20v-8" />
-      <path d="M12 12c0-3.5-2.5-6-6-6 0 3.5 2.5 6 6 6Z" />
-      <path d="M12 10c0-3 2.2-5 5.5-5 0 3-2.2 5-5.5 5Z" />
-      <path d="M5 20h14" />
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
     </svg>
   ),
-  leaf: (
+  road: (
     <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 18C6 10 12 5 20 4c1 8-4 14-12 14h-2Z" />
-      <path d="M4 20c2-4 6-8 11-10" />
+      <path d="M4 21 9 3" />
+      <path d="M20 21 15 3" />
+      <path d="M12 7v2" />
+      <path d="M12 13v2" />
+      <path d="M12 19v2" />
     </svg>
   ),
-  brain: (
+  building: (
     <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.5 4A2.5 2.5 0 0 0 7 6.5v.6A3 3 0 0 0 5 10a3 3 0 0 0 .3 4.3A2.8 2.8 0 0 0 8 19h1.5a2 2 0 0 0 2-2V6.5A2.5 2.5 0 0 0 9.5 4Z" />
-      <path d="M14.5 4A2.5 2.5 0 0 1 17 6.5v.6a3 3 0 0 1 2 2.9 3 3 0 0 1-.3 4.3A2.8 2.8 0 0 1 16 19h-1.5a2 2 0 0 1-2-2V6.5A2.5 2.5 0 0 1 14.5 4Z" />
+      <path d="M4 21V7l6-4v18" />
+      <path d="M10 21V11l7 3v7" />
+      <path d="M4 21h17" />
+      <path d="M7 9h.01M7 13h.01M7 17h.01" />
     </svg>
   ),
 }
@@ -43,7 +45,7 @@ export default function About() {
           whileInView="show"
           viewport={{ once: true, margin: '-15% 0px' }}
         >
-          Đổi mới tương lai của ngành nông nghiệp
+          Chung tay kiến tạo hạ tầng cho tương lai
         </motion.h2>
         <div>
           <motion.p
@@ -54,15 +56,17 @@ export default function About() {
             viewport={{ once: true, margin: '-15% 0px' }}
             custom={0.15}
           >
-            <span className="dim">VDF, nơi truyền thống gặp gỡ đổi mới. </span>
+            <span className="dim">
+              VDF INVEST được thành lập ngày 05/12/2023 tại Hà Nội.{' '}
+            </span>
             <span className="strong">
-              Chúng tôi tận tâm cách mạng hóa ngành nông nghiệp thông qua các
-              phương pháp canh tác bền vững và những tiến bộ công nghệ mới
-              nhất.
+              Chúng tôi đầu tư và phát triển các dự án năng lượng tái tạo, hạ
+              tầng giao thông và xây dựng với tiêu chuẩn chất lượng cao nhất.
             </span>
             <span className="dim">
-              {' '}Cam kết của chúng tôi là trao cho người nông dân công cụ và
-              kiến thức cần thiết để vun đắp một tương lai thịnh vượng.
+              {' '}Với đội ngũ giàu kinh nghiệm từ các dự án hạ tầng quốc gia,
+              VDF INVEST hướng tới vai trò đối tác chiến lược tin cậy trong sự
+              phát triển bền vững của đất nước.
             </span>
           </motion.p>
           <div className="about__cards">

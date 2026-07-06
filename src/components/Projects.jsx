@@ -52,8 +52,8 @@ export default function Projects() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.img
-            src="/images/panorama.jpg"
-            alt="Toàn cảnh nông trại rộng lớn"
+            src="/images/bridge.jpg"
+            alt="Cầu dây văng trong sương"
             loading="lazy"
             style={{ y: parallaxY }}
           />

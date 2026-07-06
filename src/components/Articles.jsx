@@ -3,14 +3,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
 
 export default function Articles() {
-  const [category, setCategory] = useState('Công nghệ và đổi mới')
+  const [category, setCategory] = useState('Mới nhất')
   const articles = ARTICLES[category]
 
   return (
     <section className="articles" id="articles">
       <div className="shell">
         <div className="section-head">
-          <span className="label">Bài viết</span>
+          <span className="label">Tin tức & sự kiện</span>
           <a className="see-all" href="#articles">
             Xem tất cả
           </a>

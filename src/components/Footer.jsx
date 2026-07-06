@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { FOOTER_COLUMNS } from '../data.js'
+import { CONTACT, FOOTER_COLUMNS } from '../data.js'
 import { LogoMark } from './Navbar.jsx'
 
 export default function Footer() {
@@ -19,7 +19,15 @@ export default function Footer() {
       <div className="shell footer__grid">
         <div className="footer__brand">
           <LogoMark dark />
-          <p>Turen, Malang East Java, Indonesia</p>
+          <p>{CONTACT.address}</p>
+          <p>
+            <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, '')}`}>
+              {CONTACT.phone}
+            </a>
+          </p>
+          <p>
+            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+          </p>
         </div>
         <div className="footer__columns">
           {FOOTER_COLUMNS.map((column) => (

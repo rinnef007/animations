@@ -14,7 +14,7 @@ export default function Cta() {
     <section className="cta" id="contact">
       <img
         className="cta__bg"
-        src="/images/cta-mountains.jpg"
+        src="/images/city.jpg"
         alt=""
         loading="lazy"
         aria-hidden="true"
@@ -27,8 +27,7 @@ export default function Cta() {
           whileInView="show"
           viewport={{ once: true, margin: '-15% 0px' }}
         >
-          Khám phá cách những công cụ tiên tiến của chúng tôi biến đổi cánh
-          đồng và nâng cao năng suất của bạn.
+          Chung tay phát triển tương lai cùng VDF INVEST.
         </motion.h2>
         <motion.p
           variants={fadeUp}
@@ -37,8 +36,8 @@ export default function Cta() {
           viewport={{ once: true, margin: '-15% 0px' }}
           custom={0.15}
         >
-          Sẵn sàng tăng năng suất? Hãy chuyển đổi nông trại của bạn với các
-          giải pháp sáng tạo ngay hôm nay!
+          Đăng ký nhận bản tin để cập nhật dự án, xu hướng năng lượng xanh và
+          cơ hội hợp tác mới nhất từ chúng tôi!
         </motion.p>
         <motion.form
           className="cta__form"
@@ -66,7 +65,7 @@ export default function Cta() {
               ease: [0.34, 1.56, 0.64, 1],
             }}
           >
-            Tham gia ngay
+            Đăng ký ngay
           </motion.button>
         </motion.form>
       </div>

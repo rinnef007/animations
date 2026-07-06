@@ -859,6 +859,16 @@
   margin-top: 22px;
   color: var(--muted);
   font-size: 15.5px;
+  max-width: 340px;
+  line-height: 1.6;
+}
+
+.footer__brand p + p {
+  margin-top: 10px;
+}
+
+.footer__brand a:hover {
+  color: var(--primary);
 }
 
 .footer__columns {

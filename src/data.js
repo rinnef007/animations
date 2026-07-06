@@ -1,137 +1,138 @@
 export const NAV_LINKS = [
   { label: 'Trang chủ', href: '#home' },
   { label: 'Về chúng tôi', href: '#about' },
-  { label: 'Dịch vụ', href: '#services' },
+  { label: 'Lĩnh vực', href: '#services' },
   { label: 'Dự án', href: '#project' },
-  { label: 'Bài viết', href: '#articles' },
+  { label: 'Tin tức', href: '#articles' },
 ]
 
+// Số liệu minh họa — thay bằng số liệu chính thức của công ty tại đây.
 export const STATS = [
-  { value: 32, suffix: '+', label: 'Năm kinh nghiệm' },
-  { value: 182, suffix: '+', label: 'Cánh đồng đang canh tác' },
-  { value: 134, suffix: ' K', label: 'Nông dân trên toàn thế giới' },
-  { value: 15, prefix: '$', suffix: ' Tỷ', label: 'Lợi nhuận nông nghiệp' },
+  { value: 2023, label: 'Năm thành lập' },
+  { value: 3, label: 'Lĩnh vực hoạt động' },
+  { value: 10, suffix: '+', label: 'Năm kinh nghiệm đội ngũ' },
+  { value: 50, suffix: '+', label: 'Dự án đã tham gia' },
 ]
 
 export const FEATURES = [
   {
-    icon: 'sprout',
-    text: 'Cải thiện sức khỏe đất cho cây trồng khỏe mạnh hơn.',
+    icon: 'energy',
+    text: 'Năng lượng tái tạo — điện gió và điện mặt trời vì tương lai xanh.',
   },
   {
-    icon: 'leaf',
-    text: 'Giống cây trồng sáng tạo cho nhiều điều kiện khác nhau.',
+    icon: 'road',
+    text: 'Hạ tầng giao thông kết nối các vùng kinh tế trọng điểm.',
   },
   {
-    icon: 'brain',
-    text: 'Nông nghiệp gắn liền với tích hợp công nghệ',
+    icon: 'building',
+    text: 'Phát triển đô thị, khu công nghiệp và công trình dân dụng.',
   },
 ]
 
 export const SERVICES = [
   {
     number: '01',
-    title: 'Tăng năng suất cây trồng với chất lượng tốt nhất',
-    text: 'Tại VDF, chúng tôi tận tâm giúp bạn đạt năng suất cây trồng cao nhất có thể thông qua các dịch vụ nông nghiệp toàn diện và đổi mới.',
-    image: '/images/lettuce-hands.jpg',
+    title: 'Đầu tư',
+    text: 'VDF INVEST tập trung nguồn lực vào các dự án năng lượng tái tạo (điện gió, điện mặt trời), hạ tầng giao thông và các công trình trọng điểm, hướng tới hiệu quả dài hạn và sự phát triển bền vững của đất nước.',
+    image: '/images/wind.jpg',
     reverse: false,
   },
   {
     number: '02',
-    title: 'Tích hợp công nghệ',
-    text: 'Tại VDF, chúng tôi chuyên tích hợp liền mạch công nghệ tiên tiến vào hoạt động canh tác của bạn để nâng cao hiệu quả, năng suất và tính bền vững.',
-    image: '/images/drone-closeup.jpg',
+    title: 'Xây dựng',
+    text: 'Chúng tôi cung cấp dịch vụ quản lý dự án, tư vấn thiết kế, giám sát và thi công xây dựng với đội ngũ kỹ sư giàu kinh nghiệm, đảm bảo tiến độ và chất lượng cho từng công trình.',
+    image: '/images/construction.jpg',
     reverse: true,
   },
   {
     number: '03',
-    title: 'Nghiên cứu và hạt giống sáng tạo',
-    text: 'Đội ngũ nhà khoa học và chuyên gia nông học của chúng tôi ứng dụng các nghiên cứu di truyền và kỹ thuật lai tạo mới nhất để phát triển những hạt giống không chỉ tối đa hóa năng suất mà còn tăng khả năng chống chịu sâu bệnh và áp lực môi trường.',
-    image: '/images/seedling-tray.jpg',
+    title: 'Thương mại & Dịch vụ',
+    text: 'Hoạt động thương mại, phân phối bán lẻ và các chương trình đào tạo chuyên môn giúp VDF INVEST mở rộng hệ sinh thái dịch vụ, đồng hành lâu dài cùng đối tác và khách hàng.',
+    image: '/images/engineers.jpg',
     reverse: false,
   },
 ]
 
 export const PROJECTS = [
   {
-    name: 'AgriFuture Solutions',
-    text: 'AgriFuture Solutions là chương trình canh tác chính xác chủ lực của chúng tôi. Bằng cách kết hợp ảnh vệ tinh, phân tích thổ nhưỡng và tưới tiêu thông minh, chúng tôi giúp các nông trại giảm lãng phí và tăng sản lượng trên hàng nghìn héc-ta.',
-    image: '/images/hero-field.jpg',
+    name: 'Trạm dịch vụ V52',
+    text: 'VDF INVEST hoàn thành công trình mở rộng và cải tạo hạ tầng trạm dịch vụ V52, nâng cao năng lực phục vụ trên tuyến cao tốc và mang đến điểm dừng nghỉ hiện đại, an toàn, tiện nghi cho người dân.',
+    image: '/images/station.jpg',
   },
   {
-    name: 'Bowery AgroField',
-    text: 'VDF đang dẫn dắt Sáng kiến Canh tác Thông minh Bền vững — một dự án đột phá nhằm cách mạng hóa nông nghiệp thông qua tích hợp công nghệ tiên tiến. Sáng kiến tập trung nâng cao năng suất cây trồng, cải thiện hiệu quả sử dụng tài nguyên và thúc đẩy bảo vệ môi trường.',
-    image: '/images/cows.jpg',
+    name: 'Năng lượng tái tạo',
+    text: 'Danh mục đầu tư điện gió và điện mặt trời của VDF INVEST góp phần đa dạng hóa nguồn cung năng lượng, giảm phát thải và thúc đẩy quá trình chuyển dịch năng lượng xanh tại Việt Nam.',
+    image: '/images/solar.jpg',
   },
   {
-    name: 'SmartFarm',
-    text: 'SmartFarm mang cảm biến kết nối và máy móc tự hành đến các nông trại gia đình, giúp công nghệ nông nghiệp tiên tiến trở nên dễ tiếp cận, chi phí hợp lý và dễ vận hành với mọi người.',
-    image: '/images/lettuce-hands.jpg',
+    name: 'Hạ tầng giao thông',
+    text: 'Tham gia đầu tư và xây dựng các công trình cầu đường trọng điểm, VDF INVEST góp phần tăng cường kết nối vùng và tạo động lực phát triển kinh tế – xã hội cho các địa phương.',
+    image: '/images/bridge.jpg',
   },
 ]
 
 export const ARTICLE_CATEGORIES = [
   'Mới nhất',
-  'Quản lý cây trồng',
-  'Công nghệ và đổi mới',
-  'Sức khỏe và đời sống',
+  'Năng lượng xanh',
+  'Xây dựng',
+  'Cổ đông & sự kiện',
 ]
 
 export const ARTICLES = {
   'Mới nhất': [
     {
-      title: 'Mùa vụ sắp tới: Nông dân cần lưu ý gì trong năm 2025',
+      title: 'Xu hướng năng lượng xanh – định hướng phát triển bền vững',
       excerpt:
-        'Từ biến động thời tiết đến những cơ hội thị trường mới, đây là tổng hợp các xu hướng sẽ định hình mùa vụ sắp tới và cách chuẩn bị cho chúng.',
-      image: '/images/panorama.jpg',
+        'Năng lượng tái tạo đang trở thành trụ cột trong chiến lược phát triển hạ tầng. Cùng nhìn lại những xu hướng điện gió, điện mặt trời nổi bật và định hướng của VDF INVEST trong giai đoạn tới.',
+      image: '/images/wind.jpg',
     },
     {
-      title: 'Bên trong VDF: Một năm canh tác bền vững của chúng tôi',
+      title: 'VDF Invest hoàn thành mở rộng và cải tạo hạ tầng trạm dịch vụ V52',
       excerpt:
-        'Nhìn lại những cánh đồng, người nông dân và các đột phá làm nên một năm của chúng tôi — cùng những cột mốc chúng tôi hướng tới trên toàn mạng lưới.',
-      image: '/images/hero-field.jpg',
-    },
-  ],
-  'Quản lý cây trồng': [
-    {
-      title: 'Luân canh đúng cách: Đất khỏe hơn sau bốn mùa vụ',
-      excerpt:
-        'Luân canh cây trồng vẫn là một trong những công cụ hiệu quả nhất cho sức khỏe của đất. Hướng dẫn này trình bày các kế hoạch luân canh thực tế giúp tăng năng suất mà không cần thêm chi phí đầu vào.',
-      image: '/images/seedling-tray.jpg',
-    },
-    {
-      title: 'Đọc vị cánh đồng: Dấu hiệu sớm của thiếu hụt dinh dưỡng',
-      excerpt:
-        'Màu lá, tốc độ sinh trưởng và kết quả phân tích đất đều kể một câu chuyện. Học cách nhận biết sớm tình trạng thiếu dinh dưỡng và khắc phục trước khi nó ảnh hưởng đến vụ thu hoạch.',
-      image: '/images/lettuce-hands.jpg',
+        'Công trình mở rộng trạm dịch vụ V52 chính thức hoàn thành, nâng cao năng lực phục vụ và mang đến trải nghiệm dừng nghỉ an toàn, tiện nghi hơn cho người dân trên tuyến cao tốc.',
+      image: '/images/station.jpg',
     },
   ],
-  'Công nghệ và đổi mới': [
+  'Năng lượng xanh': [
     {
-      title: 'Nâng cao năng suất cây trồng với máy kéo công nghệ',
+      title: 'Năng lượng xanh trong xây dựng hiện đại',
       excerpt:
-        'Canh tác chính xác đang cách mạng hóa ngành nông nghiệp, và máy kéo là trung tâm của cuộc chuyển đổi này. Bài viết khám phá cách những chiếc máy kéo hiện đại trang bị GPS và phân tích dữ liệu đang nâng cao năng suất cây trồng.',
-      image: '/images/tractor.jpg',
+        'Từ vật liệu thân thiện môi trường đến điện mặt trời áp mái, các giải pháp năng lượng xanh đang thay đổi cách những công trình được thiết kế, thi công và vận hành.',
+      image: '/images/solar.jpg',
     },
     {
-      title: 'Drone: Trợ thủ mới của nông nghiệp hiện đại',
+      title: 'Điện gió và điện mặt trời: cơ hội đầu tư dài hạn',
       excerpt:
-        'Từ giám sát cây trồng đến phun thuốc chính xác, drone nông nghiệp đang mang đến cho người nông dân góc nhìn toàn cảnh cánh đồng cùng bộ công cụ mạnh mẽ cho công việc hằng ngày.',
-      image: '/images/drone-sunset.jpg',
+        'Nhu cầu điện sạch tăng nhanh mở ra dư địa lớn cho các nhà đầu tư hạ tầng năng lượng. Phân tích tiềm năng và những yếu tố cần cân nhắc khi tham gia lĩnh vực này.',
+      image: '/images/wind.jpg',
     },
   ],
-  'Sức khỏe và đời sống': [
+  'Xây dựng': [
     {
-      title: 'Từ nông trại đến bàn ăn: Trồng thực phẩm giàu dinh dưỡng hơn',
+      title: '5 yếu tố ảnh hưởng đến chi phí thi công xây dựng năm 2026',
       excerpt:
-        'Đất khỏe nuôi thực phẩm lành. Chúng tôi tìm hiểu các phương pháp canh tác giúp nâng cao rõ rệt giá trị dinh dưỡng của cây trồng hằng ngày.',
-      image: '/images/cows.jpg',
+        'Giá vật liệu, nhân công, thiết kế, tiến độ và thủ tục pháp lý — phân tích năm yếu tố then chốt tác động trực tiếp đến chi phí thi công và cách kiểm soát ngân sách hiệu quả.',
+      image: '/images/construction.jpg',
     },
     {
-      title: 'Sức khỏe người nông dân: Làm việc bền vững trên nông trại bền vững',
+      title: 'Quản lý dự án hiệu quả: kinh nghiệm từ công trường',
       excerpt:
-        'Bền vững không chỉ nằm ở đất đai. Những chiến lược này giúp cộng đồng nông nghiệp khỏe mạnh, gắn kết và kiên cường qua những mùa vụ vất vả.',
-      image: '/images/cta-mountains.jpg',
+        'Điều phối nhà thầu, kiểm soát chất lượng và bám sát tiến độ — những bài học thực tế giúp dự án xây dựng về đích đúng hạn với chất lượng cao nhất.',
+      image: '/images/engineers.jpg',
+    },
+  ],
+  'Cổ đông & sự kiện': [
+    {
+      title: 'Đại hội đồng cổ đông thường niên 2026 – VDF Invest',
+      excerpt:
+        'Đại hội đồng cổ đông thường niên 2026 thông qua kế hoạch kinh doanh, định hướng đầu tư và các mục tiêu phát triển trọng tâm của VDF INVEST trong năm tới.',
+      image: '/images/meeting.jpg',
+    },
+    {
+      title: 'VDF INVEST và định hướng phát triển giai đoạn mới',
+      excerpt:
+        'Với nền tảng từ các dự án hạ tầng quốc gia, VDF INVEST đặt mục tiêu trở thành đối tác chiến lược tin cậy trong đầu tư, xây dựng và thương mại dịch vụ.',
+      image: '/images/city.jpg',
     },
   ],
 }
@@ -139,14 +140,21 @@ export const ARTICLES = {
 export const FOOTER_COLUMNS = [
   {
     title: 'Điều hướng',
-    links: ['Trang chủ', 'Về chúng tôi', 'Dịch vụ', 'Hồ sơ dự án', 'Bài viết'],
+    links: ['Trang chủ', 'Về chúng tôi', 'Lĩnh vực', 'Dự án', 'Tin tức'],
   },
   {
-    title: 'Dự án',
-    links: ['AgriFuture Solutions', 'Bowery AgroField', 'SmartFarm'],
+    title: 'Lĩnh vực',
+    links: ['Đầu tư', 'Xây dựng', 'Thương mại & Dịch vụ'],
   },
   {
-    title: 'Hỗ trợ',
-    links: ['Trợ giúp & hỗ trợ', 'Bảo mật'],
+    title: 'Công ty',
+    links: ['Quan hệ cổ đông', 'Tuyển dụng', 'Liên hệ'],
   },
 ]
+
+export const CONTACT = {
+  address:
+    'Tầng 10, tòa nhà Lilama10, đường Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội',
+  phone: '+84 382.156.168',
+  email: 'investvdf@gmail.com',
+}

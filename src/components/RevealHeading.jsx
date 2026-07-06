@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const TEXT = 'Chuyển đổi nông nghiệp bằng giải pháp thông minh cho tương lai bền vững'
-// Cụm mở đầu "Chuyển đổi" giữ màu xám ở trạng thái cuối, phần còn lại chuyển xanh.
+const TEXT = 'Chung tay phát triển tương lai bằng năng lượng sạch và hạ tầng hiện đại'
+// Cụm mở đầu "Chung tay" giữ màu xám ở trạng thái cuối, phần còn lại chuyển xanh.
 const MUTED_FINAL_COUNT = 2
 
 function Word({ children, progress, range, finalColor }) {

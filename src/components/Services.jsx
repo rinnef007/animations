@@ -78,7 +78,7 @@ export default function Services() {
     <section className="services" id="services">
       <div className="shell">
         <div className="section-head">
-          <span className="label">Dịch vụ</span>
+          <span className="label">Lĩnh vực hoạt động</span>
           <a className="see-all" href="#services">
             Xem tất cả
           </a>
@@ -90,7 +90,7 @@ export default function Services() {
             viewport={{ once: true, margin: '-15% 0px' }}
             variants={fadeUp}
           >
-            Dịch vụ tiên tiến cho nền nông nghiệp hiệu quả
+            Ba lĩnh vực cốt lõi của VDF INVEST
           </motion.h2>
           <motion.p
             initial="hidden"
@@ -99,12 +99,10 @@ export default function Services() {
             variants={fadeUp}
             custom={0.15}
           >
-            Chúng tôi cung cấp trọn bộ dịch vụ nông nghiệp được thiết kế để
-            trao cho người nông dân những đổi mới mới nhất và phương pháp canh
-            tác bền vững. Từ kỹ thuật canh tác chính xác giúp tối đa hóa năng
-            suất đến các giải pháp thân thiện với môi trường, dịch vụ toàn
-            diện của chúng tôi được điều chỉnh phù hợp với nhu cầu riêng của
-            từng nông trại.
+            Từ đầu tư năng lượng tái tạo và hạ tầng giao thông, đến quản lý
+            dự án, tư vấn thiết kế, giám sát và thi công xây dựng, cùng hoạt
+            động thương mại – dịch vụ, VDF INVEST xây dựng hệ sinh thái toàn
+            diện để đồng hành cùng đối tác trong từng công trình và dự án.
           </motion.p>
         </div>
         {SERVICES.map((service) => (

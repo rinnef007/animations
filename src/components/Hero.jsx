@@ -14,8 +14,8 @@ export default function Hero() {
     <section className="hero" id="home">
       <motion.img
         className="hero__bg"
-        src="/images/hero-field.jpg"
-        alt="Cánh đồng xanh nhìn từ trên cao"
+        src="/images/hero-infra.jpg"
+        alt="Nút giao cao tốc nhìn từ trên cao"
         initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}
         transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
@@ -36,10 +36,10 @@ export default function Hero() {
           animate="show"
           custom={0.75}
         >
-          Tiên phong kiến tạo tương lai nông nghiệp bằng việc ứng dụng công
-          nghệ tiên tiến và những phương pháp canh tác đổi mới. Sứ mệnh của
-          chúng tôi là xây dựng các giải pháp nông nghiệp bền vững, hiệu quả,
-          đảm bảo mùa màng bội thu và khỏe mạnh cho các thế hệ mai sau.
+          Công ty Cổ phần Đầu tư và Phát triển VDF — chung tay phát triển
+          tương lai qua các dự án năng lượng tái tạo, hạ tầng giao thông và
+          phát triển đô thị bền vững, đồng hành cùng sự vươn mình của đất
+          nước.
         </motion.p>
       </div>
       <motion.a
