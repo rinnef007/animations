@@ -827,9 +827,9 @@
 
 .footer__watermark {
   overflow: hidden;
-  line-height: 0.78;
+  line-height: 0.82;
   text-align: center;
-  margin-top: -11vw;
+  margin-top: -6.5vw;
   position: relative;
   z-index: 2;
   pointer-events: none;
@@ -837,10 +837,11 @@
 
 .footer__watermark span {
   display: inline-block;
-  font-size: 31vw;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: rgba(216, 220, 216, 0.72);
+  font-size: 16vw;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-right: -0.06em;
+  color: rgba(219, 223, 219, 0.6);
 }
 
 .footer__grid {
