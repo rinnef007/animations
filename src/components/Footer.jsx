@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { CONTACT, FOOTER_COLUMNS } from '../data.js'
 import { LogoMark } from './Navbar.jsx'
@@ -18,7 +19,9 @@ export default function Footer() {
       </div>
       <div className="shell footer__grid">
         <div className="footer__brand">
-          <LogoMark dark />
+          <Link to="/" aria-label="Về trang chủ">
+            <LogoMark dark />
+          </Link>
           <p>{CONTACT.address}</p>
           <p>
             <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, '')}`}>
@@ -35,8 +38,14 @@ export default function Footer() {
               <h4>{column.title}</h4>
               <ul>
                 {column.links.map((link) => (
-                  <li key={link}>
-                    <a href="#home">{link}</a>
+                  <li key={link.label}>
+                    {link.to.startsWith('http') ? (
+                      <a href={link.to} target="_blank" rel="noreferrer">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link to={link.to}>{link.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>

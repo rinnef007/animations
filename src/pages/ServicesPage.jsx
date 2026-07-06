@@ -35,6 +35,7 @@ export default function ServicesPage() {
           {SERVICES.map((service) => (
             <div
               className={`service ${service.reverse ? 'service--reverse' : ''}`}
+              id={service.id}
               key={service.number}
             >
               <div className="service__body">

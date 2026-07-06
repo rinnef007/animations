@@ -32,6 +32,7 @@ export const FEATURES = [
 export const SERVICES = [
   {
     number: '01',
+    id: 'dau-tu',
     title: 'Đầu tư',
     text: 'VDF INVEST tập trung nguồn lực vào các dự án năng lượng tái tạo (điện gió, điện mặt trời), hạ tầng giao thông và các công trình trọng điểm, hướng tới hiệu quả dài hạn và sự phát triển bền vững của đất nước.',
     image: '/images/wind.jpg',
@@ -53,6 +54,7 @@ export const SERVICES = [
   },
   {
     number: '02',
+    id: 'xay-dung',
     title: 'Xây dựng',
     text: 'Chúng tôi cung cấp dịch vụ quản lý dự án, tư vấn thiết kế, giám sát và thi công xây dựng với đội ngũ kỹ sư giàu kinh nghiệm, đảm bảo tiến độ và chất lượng cho từng công trình.',
     image: '/images/construction.jpg',
@@ -78,6 +80,7 @@ export const SERVICES = [
   },
   {
     number: '03',
+    id: 'thuong-mai-dich-vu',
     title: 'Thương mại & Dịch vụ',
     text: 'Hoạt động thương mại, phân phối bán lẻ và các chương trình đào tạo chuyên môn giúp VDF INVEST mở rộng hệ sinh thái dịch vụ, đồng hành lâu dài cùng đối tác và khách hàng.',
     image: '/images/engineers.jpg',
@@ -394,18 +397,34 @@ export const ARTICLES = {
   ],
 }
 
+// Link nội bộ dùng đường dẫn '/...' (điều hướng router, có màn trượt);
+// link ngoài dùng 'https://...' (mở tab mới).
 export const FOOTER_COLUMNS = [
   {
     title: 'Điều hướng',
-    links: ['Trang chủ', 'Về chúng tôi', 'Lĩnh vực', 'Dự án', 'Tin tức'],
+    links: [
+      { label: 'Trang chủ', to: '/' },
+      { label: 'Về chúng tôi', to: '/#about' },
+      { label: 'Lĩnh vực', to: '/linh-vuc' },
+      { label: 'Dự án', to: '/du-an' },
+      { label: 'Tin tức', to: '/tin-tuc' },
+    ],
   },
   {
     title: 'Lĩnh vực',
-    links: ['Đầu tư', 'Xây dựng', 'Thương mại & Dịch vụ'],
+    links: [
+      { label: 'Đầu tư', to: '/linh-vuc#dau-tu' },
+      { label: 'Xây dựng', to: '/linh-vuc#xay-dung' },
+      { label: 'Thương mại & Dịch vụ', to: '/linh-vuc#thuong-mai-dich-vu' },
+    ],
   },
   {
     title: 'Công ty',
-    links: ['Quan hệ cổ đông', 'Tuyển dụng', 'Liên hệ'],
+    links: [
+      { label: 'Quan hệ cổ đông', to: 'https://vdf.vn/qhcd' },
+      { label: 'Tuyển dụng', to: 'https://vdf.vn/jobs' },
+      { label: 'Liên hệ', to: '/#contact' },
+    ],
   },
 ]
 
