@@ -173,57 +173,205 @@ export const ARTICLES = {
   'Mới nhất': [
     {
       title: 'Xu hướng năng lượng xanh – định hướng phát triển bền vững',
+      date: '31/05/2026',
       excerpt:
         'Năng lượng tái tạo đang trở thành trụ cột trong chiến lược phát triển hạ tầng. Cùng nhìn lại những xu hướng điện gió, điện mặt trời nổi bật và định hướng của VDF INVEST trong giai đoạn tới.',
       image: '/images/wind.jpg',
+      body: [
+        {
+          text: 'Thế giới đang chuyển dịch mạnh mẽ sang các nguồn năng lượng sạch trước áp lực về nhu cầu điện ngày càng tăng và yêu cầu bảo vệ môi trường. Trong đó, điện mặt trời nổi bật nhờ chi phí đầu tư giảm nhanh, thi công linh hoạt và phù hợp với nhiều loại công trình.',
+        },
+        {
+          heading: 'Tiềm năng tại Việt Nam',
+          text: 'Với khí hậu nhiệt đới và lượng bức xạ mặt trời dồi dào quanh năm, Việt Nam có điều kiện lý tưởng để phát triển điện mặt trời. Đây cũng là hướng đi phù hợp với mục tiêu xây dựng nền kinh tế xanh và cam kết giảm phát thải của quốc gia.',
+        },
+        {
+          heading: 'Các công trình VDF đã triển khai',
+          text: 'VDF đã lắp đặt hệ thống điện mặt trời áp mái tại chợ Bỉm Sơn và chợ Cống (tỉnh Thanh Hóa), đồng thời triển khai hệ thống điện mặt trời tự sản tự tiêu tại các trạm dịch vụ V23, V52 và V77 trên tuyến cao tốc Hà Nội – Hải Phòng, giúp các công trình chủ động nguồn điện và giảm chi phí vận hành.',
+        },
+        {
+          heading: 'Chất lượng và an toàn là ưu tiên hàng đầu',
+          text: 'Trong quá trình lắp đặt và vận hành, VDF chú trọng kiểm soát chất lượng thiết bị, tuân thủ quy trình an toàn và bảo trì định kỳ, đảm bảo hệ thống hoạt động hiệu quả, ổn định trong dài hạn.',
+        },
+        {
+          heading: 'Định hướng phát triển',
+          text: 'VDF INVEST sẽ tiếp tục mở rộng ứng dụng năng lượng sạch trong các công trình xây dựng và hạ tầng do công ty đầu tư, thi công — góp phần hiện thực hóa mục tiêu phát triển bền vững "chung tay phát triển tương lai".',
+        },
+      ],
     },
     {
       title: 'VDF Invest hoàn thành mở rộng và cải tạo hạ tầng trạm dịch vụ V52',
+      date: '19/05/2026',
       excerpt:
         'Công trình mở rộng trạm dịch vụ V52 chính thức hoàn thành, nâng cao năng lực phục vụ và mang đến trải nghiệm dừng nghỉ an toàn, tiện nghi hơn cho người dân trên tuyến cao tốc.',
       image: '/images/station.jpg',
+      body: [
+        {
+          text: 'VDF Invest vừa hoàn thành công trình mở rộng và cải tạo hạ tầng trạm dịch vụ V52 trên tuyến cao tốc, đánh dấu một bước tiến trong việc chuẩn hóa hệ thống điểm dừng nghỉ hiện đại phục vụ người tham gia giao thông.',
+        },
+        {
+          heading: 'Các hạng mục chính',
+          text: 'Dự án bao gồm mở rộng mặt bằng khai thác, cải tạo hạ tầng kỹ thuật, nâng cấp khu dịch vụ tổng hợp và bổ sung tiện ích phục vụ hành khách, hướng tới trải nghiệm dừng nghỉ thuận tiện và an toàn hơn.',
+        },
+        {
+          heading: 'Giá trị mang lại',
+          text: 'Sau cải tạo, trạm V52 nâng cao rõ rệt năng lực phục vụ vào các khung giờ cao điểm và dịp lễ, đồng thời cải thiện chất lượng dịch vụ, vệ sinh và cảnh quan toàn khu vực.',
+        },
+        {
+          heading: 'Bước tiếp theo',
+          text: 'VDF Invest sẽ tiếp tục rà soát và nâng cấp chuỗi trạm dịch vụ đang vận hành, kết hợp ứng dụng năng lượng mặt trời tự tiêu thụ để giảm chi phí và phát thải.',
+        },
+      ],
     },
   ],
   'Năng lượng xanh': [
     {
       title: 'Năng lượng xanh trong xây dựng hiện đại',
+      date: '12/04/2026',
       excerpt:
         'Từ vật liệu thân thiện môi trường đến điện mặt trời áp mái, các giải pháp năng lượng xanh đang thay đổi cách những công trình được thiết kế, thi công và vận hành.',
       image: '/images/solar.jpg',
+      body: [
+        {
+          text: 'Xu hướng xây dựng xanh không còn là lựa chọn mà đang trở thành tiêu chuẩn mới của ngành. Chủ đầu tư ngày càng quan tâm đến hiệu quả năng lượng của công trình ngay từ khâu thiết kế.',
+        },
+        {
+          heading: 'Vật liệu và thiết kế tiết kiệm năng lượng',
+          text: 'Vật liệu cách nhiệt tốt, kính tiết kiệm năng lượng và thiết kế tận dụng ánh sáng, thông gió tự nhiên giúp giảm đáng kể điện năng tiêu thụ trong suốt vòng đời công trình.',
+        },
+        {
+          heading: 'Điện mặt trời áp mái',
+          text: 'Hệ thống điện mặt trời áp mái cho phép công trình tự chủ một phần nguồn điện, giảm chi phí vận hành và phát thải — mô hình VDF đã áp dụng thực tế tại các công trình chợ và trạm dịch vụ.',
+        },
+        {
+          heading: 'Lợi ích dài hạn',
+          text: 'Chi phí đầu tư ban đầu cao hơn được bù đắp bằng chi phí vận hành thấp, giá trị tài sản tăng và hình ảnh phát triển bền vững của chủ đầu tư.',
+        },
+      ],
     },
     {
       title: 'Điện gió và điện mặt trời: cơ hội đầu tư dài hạn',
+      date: '28/03/2026',
       excerpt:
         'Nhu cầu điện sạch tăng nhanh mở ra dư địa lớn cho các nhà đầu tư hạ tầng năng lượng. Phân tích tiềm năng và những yếu tố cần cân nhắc khi tham gia lĩnh vực này.',
       image: '/images/wind.jpg',
+      body: [
+        {
+          text: 'Nhu cầu điện của Việt Nam tăng trưởng ổn định cùng tốc độ phát triển kinh tế, trong khi cam kết giảm phát thải đòi hỏi tỷ trọng năng lượng tái tạo ngày càng lớn trong cơ cấu nguồn điện.',
+        },
+        {
+          heading: 'Dư địa cho nhà đầu tư',
+          text: 'Điện gió và điện mặt trời quy mô trang trại còn nhiều tiềm năng tại các vùng có bức xạ và gió tốt. Chính sách khuyến khích năng lượng sạch tạo nền tảng cho các dự án dài hạn.',
+        },
+        {
+          heading: 'Những yếu tố cần cân nhắc',
+          text: 'Nhà đầu tư cần đánh giá kỹ quy hoạch điện, khả năng đấu nối lưới, chi phí vốn, công nghệ thiết bị và phương án vận hành – bảo trì trước khi quyết định rót vốn.',
+        },
+        {
+          heading: 'Cách tiếp cận của VDF',
+          text: 'VDF INVEST ưu tiên các dự án có hiệu suất cao, sử dụng đất hiệu quả và tác động môi trường thấp, đồng hành cùng đối tác từ nghiên cứu khả thi đến vận hành.',
+        },
+      ],
     },
   ],
   'Xây dựng': [
     {
       title: '5 yếu tố ảnh hưởng đến chi phí thi công xây dựng năm 2026',
+      date: '10/05/2026',
       excerpt:
         'Giá vật liệu, nhân công, thiết kế, tiến độ và thủ tục pháp lý — phân tích năm yếu tố then chốt tác động trực tiếp đến chi phí thi công và cách kiểm soát ngân sách hiệu quả.',
       image: '/images/construction.jpg',
+      body: [
+        {
+          text: 'Kiểm soát chi phí luôn là bài toán trọng tâm của mọi dự án xây dựng. Năm 2026, có năm yếu tố chính mà chủ đầu tư cần theo dõi sát để giữ ngân sách trong tầm kiểm soát.',
+        },
+        {
+          heading: '1. Giá vật liệu xây dựng',
+          text: 'Biến động giá thép, xi măng, cát đá ảnh hưởng trực tiếp đến tổng mức đầu tư. Ký hợp đồng cung ứng dài hạn và dự trù trượt giá là biện pháp phòng ngừa hiệu quả.',
+        },
+        {
+          heading: '2. Chi phí nhân công',
+          text: 'Mặt bằng lương nhân công kỹ thuật tăng đều qua các năm; tổ chức thi công hợp lý và cơ giới hóa giúp tối ưu năng suất trên từng đầu người.',
+        },
+        {
+          heading: '3. Giải pháp thiết kế',
+          text: 'Thiết kế tối ưu ngay từ đầu giảm thiểu phát sinh khi thi công. Chi phí điều chỉnh thiết kế giữa chừng thường cao gấp nhiều lần chi phí tư vấn ban đầu.',
+        },
+        {
+          heading: '4. Tiến độ thi công',
+          text: 'Kéo dài tiến độ đồng nghĩa đội chi phí quản lý, máy móc và lãi vay. Kế hoạch thi công chi tiết và giám sát chặt là chìa khóa giữ tiến độ.',
+        },
+        {
+          heading: '5. Thủ tục pháp lý',
+          text: 'Chậm trễ trong cấp phép, nghiệm thu hay phòng cháy chữa cháy có thể dừng cả công trường. Chuẩn bị hồ sơ pháp lý đầy đủ từ sớm giúp dự án vận hành trơn tru.',
+        },
+      ],
     },
     {
       title: 'Quản lý dự án hiệu quả: kinh nghiệm từ công trường',
+      date: '22/02/2026',
       excerpt:
         'Điều phối nhà thầu, kiểm soát chất lượng và bám sát tiến độ — những bài học thực tế giúp dự án xây dựng về đích đúng hạn với chất lượng cao nhất.',
       image: '/images/engineers.jpg',
+      body: [
+        {
+          text: 'Một dự án xây dựng thành công không chỉ nằm ở bản vẽ đẹp mà ở khả năng tổ chức thực hiện. Dưới đây là những kinh nghiệm thực tế từ các công trường do VDF quản lý.',
+        },
+        {
+          heading: 'Điều phối nhà thầu',
+          text: 'Phân định rõ phạm vi công việc, giao diện giữa các gói thầu và lịch phối hợp hằng tuần giúp tránh chồng chéo — nguyên nhân phổ biến nhất gây chậm tiến độ.',
+        },
+        {
+          heading: 'Kiểm soát chất lượng',
+          text: 'Nghiệm thu theo từng công đoạn thay vì dồn về cuối, kết hợp nhật ký thi công đầy đủ, giúp phát hiện và xử lý sai sót ngay khi còn dễ khắc phục.',
+        },
+        {
+          heading: 'Bám sát tiến độ',
+          text: 'Theo dõi sản lượng thực tế so với kế hoạch theo tuần và cập nhật đường găng thường xuyên cho phép ra quyết định điều chỉnh kịp thời trước khi chậm trễ lan rộng.',
+        },
+      ],
     },
   ],
   'Cổ đông & sự kiện': [
     {
       title: 'Đại hội đồng cổ đông thường niên 2026 – VDF Invest',
+      date: '24/04/2026',
       excerpt:
         'Đại hội đồng cổ đông thường niên 2026 thông qua kế hoạch kinh doanh, định hướng đầu tư và các mục tiêu phát triển trọng tâm của VDF INVEST trong năm tới.',
       image: '/images/meeting.jpg',
+      body: [
+        {
+          text: 'Đại hội đồng cổ đông thường niên năm 2026 của VDF Invest đã diễn ra thành công với sự tham dự của các cổ đông, Hội đồng quản trị và Ban điều hành công ty.',
+        },
+        {
+          heading: 'Nội dung chính của Đại hội',
+          text: 'Đại hội đã nghe và thông qua báo cáo kết quả hoạt động, báo cáo tài chính, phương án phân phối lợi nhuận cùng kế hoạch kinh doanh cho năm tài chính tiếp theo.',
+        },
+        {
+          heading: 'Định hướng năm tới',
+          text: 'Công ty tập trung nguồn lực cho các dự án hạ tầng dịch vụ trên cao tốc, mở rộng danh mục năng lượng tái tạo và củng cố năng lực thi công xây dựng.',
+        },
+      ],
     },
     {
       title: 'VDF INVEST và định hướng phát triển giai đoạn mới',
+      date: '15/01/2026',
       excerpt:
         'Với nền tảng từ các dự án hạ tầng quốc gia, VDF INVEST đặt mục tiêu trở thành đối tác chiến lược tin cậy trong đầu tư, xây dựng và thương mại dịch vụ.',
       image: '/images/city.jpg',
+      body: [
+        {
+          text: 'Được thành lập cuối năm 2023 với đội ngũ giàu kinh nghiệm từ các dự án hạ tầng quốc gia, VDF INVEST bước vào giai đoạn phát triển mới với chiến lược rõ ràng trên ba trụ cột.',
+        },
+        {
+          heading: 'Ba trụ cột chiến lược',
+          text: 'Đầu tư năng lượng tái tạo và hạ tầng giao thông; dịch vụ xây dựng trọn gói từ tư vấn thiết kế đến thi công; và hoạt động thương mại – dịch vụ – đào tạo bổ trợ cho hệ sinh thái.',
+        },
+        {
+          heading: 'Tầm nhìn',
+          text: 'VDF INVEST hướng tới vị thế đối tác chiến lược tin cậy trong các dự án phát triển bền vững, chung tay cùng đối tác và cộng đồng kiến tạo giá trị dài hạn.',
+        },
+      ],
     },
   ],
 }

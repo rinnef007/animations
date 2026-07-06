@@ -1,9 +1,68 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
 
+function Reader({ article, category, onClose }) {
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === 'Escape') onClose()
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [onClose])
+
+  return (
+    <motion.div
+      className="reader"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35 }}
+      onClick={onClose}
+    >
+      <motion.article
+        className="reader__panel"
+        data-lenis-prevent
+        initial={{ y: 64, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 40, opacity: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          className="reader__close"
+          aria-label="Đóng bài viết"
+          onClick={onClose}
+        >
+          ✕
+        </button>
+        <img className="reader__cover" src={article.image} alt={article.title} />
+        <div className="reader__content">
+          <div className="reader__meta">
+            <span className="reader__tag">{category}</span>
+            <span className="reader__date">{article.date}</span>
+          </div>
+          <h2>{article.title}</h2>
+          {article.body.map((section, i) => (
+            <section key={i}>
+              {section.heading && <h3>{section.heading}</h3>}
+              <p>{section.text}</p>
+            </section>
+          ))}
+        </div>
+      </motion.article>
+    </motion.div>
+  )
+}
+
 export default function Articles() {
   const [category, setCategory] = useState('Mới nhất')
+  const [reading, setReading] = useState(null)
   const articles = ARTICLES[category]
 
   return (
@@ -64,11 +123,16 @@ export default function Articles() {
                     <div className="article-card__media">
                       <img src={article.image} alt={article.title} loading="lazy" />
                     </div>
+                    <span className="article-card__date">{article.date}</span>
                     <h3>{article.title}</h3>
                     <p>{article.excerpt}</p>
-                    <a className="article-card__link" href="#articles">
+                    <button
+                      type="button"
+                      className="article-card__link"
+                      onClick={() => setReading(article)}
+                    >
                       Tìm hiểu thêm
-                    </a>
+                    </button>
                   </motion.article>
                 ))}
               </motion.div>
@@ -76,6 +140,15 @@ export default function Articles() {
           </div>
         </div>
       </div>
+      <AnimatePresence>
+        {reading && (
+          <Reader
+            article={reading}
+            category={category}
+            onClose={() => setReading(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
