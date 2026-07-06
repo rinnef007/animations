@@ -10,24 +10,7 @@ import { NAV_LINKS } from '../data.js'
 export function LogoMark({ dark = false }) {
   return (
     <span className={`logo ${dark ? 'logo--dark' : ''}`}>
-      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
-        <ellipse
-          cx="16"
-          cy="16"
-          rx="13"
-          ry="9"
-          transform="rotate(-24 16 16)"
-          fill="currentColor"
-        />
-        <path
-          d="M5 21c7-2 15-8 22-10"
-          stroke={dark ? '#f2f3f2' : '#5b8ec7'}
-          strokeWidth="2.4"
-          fill="none"
-          strokeLinecap="round"
-        />
-      </svg>
-      VDF
+      <img src="/images/vdf-logo.png" alt="VDF INVEST" />
     </span>
   )
 }

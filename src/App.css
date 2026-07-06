@@ -24,11 +24,6 @@
   padding: 14px 56px;
 }
 
-.nav--solid .logo,
-.nav--solid .logo svg {
-  color: var(--ink);
-}
-
 .nav--solid .nav__cta {
   background: var(--primary);
   color: #fff;
@@ -37,23 +32,22 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: #fff;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
-.logo svg {
-  color: #fff;
+.logo img {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
+/* trên nền sáng (navbar solid, footer) logo hiển thị trực tiếp, không cần chip */
 .logo--dark {
-  color: var(--ink);
-}
-
-.logo--dark svg {
-  color: var(--ink);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 .nav__links {
@@ -851,8 +845,8 @@
   padding-top: 110px;
 }
 
-.footer__brand .logo {
-  font-size: 24px;
+.footer__brand .logo img {
+  height: 60px;
 }
 
 .footer__brand p {
