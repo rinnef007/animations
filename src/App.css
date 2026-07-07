@@ -111,6 +111,108 @@
   margin-top: 32px;
 }
 
+/* ============ trang quan hệ cổ đông ============ */
+
+.doc-group {
+  padding: 26px 0 10px;
+}
+
+.doc-group__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--muted-2);
+}
+
+.doc-group__head h3 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.doc-group__count {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.doc-list {
+  list-style: none;
+}
+
+.doc-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 6px;
+  border-bottom: 1px solid var(--muted-2);
+  transition: background 0.25s ease;
+}
+
+.doc-row:hover {
+  background: var(--tint);
+}
+
+.doc-row__icon {
+  color: var(--primary);
+  display: flex;
+  flex-shrink: 0;
+}
+
+.doc-row__title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color 0.25s ease;
+}
+
+.doc-row:hover .doc-row__title {
+  color: var(--primary);
+}
+
+.doc-row__date {
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.doc-row__action {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.doc-row:hover .doc-row__action {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 700px) {
+  .doc-row {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+  .doc-row__title {
+    flex: 1 1 calc(100% - 40px);
+  }
+  .doc-row__date {
+    margin-left: 36px;
+  }
+  .doc-row__action {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* tabs danh mục trên trang tin tức */
 .news-tabs {
   display: flex;

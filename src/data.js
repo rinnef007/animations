@@ -418,6 +418,88 @@ export function findArticleBySlug(slug) {
   return null
 }
 
+// Trang Quan hệ cổ đông — tài liệu là placeholder minh họa:
+// thay `href: '#'` bằng đường dẫn file PDF thật khi có.
+export const SHAREHOLDER_SECTIONS = [
+  {
+    title: 'Báo cáo',
+    groups: [
+      {
+        name: 'Báo cáo thường niên',
+        documents: [
+          { title: 'Báo cáo thường niên năm 2025', date: '15/04/2026', href: '#' },
+          { title: 'Báo cáo thường niên năm 2024', date: '18/04/2025', href: '#' },
+        ],
+      },
+      {
+        name: 'Báo cáo tài chính',
+        documents: [
+          { title: 'Báo cáo tài chính kiểm toán năm 2025', date: '30/03/2026', href: '#' },
+          { title: 'Báo cáo tài chính bán niên năm 2025', date: '15/08/2025', href: '#' },
+          { title: 'Báo cáo tài chính kiểm toán năm 2024', date: '28/03/2025', href: '#' },
+        ],
+      },
+      {
+        name: 'Báo cáo quản trị',
+        documents: [
+          { title: 'Báo cáo quản trị công ty năm 2025', date: '25/01/2026', href: '#' },
+          { title: 'Báo cáo quản trị công ty bán niên năm 2025', date: '25/07/2025', href: '#' },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Công bố thông tin',
+    groups: [
+      {
+        name: 'Đại hội đồng cổ đông',
+        documents: [
+          { title: 'Nghị quyết Đại hội đồng cổ đông thường niên 2026', date: '28/04/2026', href: '#' },
+          { title: 'Tài liệu họp Đại hội đồng cổ đông thường niên 2026', date: '10/04/2026', href: '#' },
+          { title: 'Thông báo mời họp Đại hội đồng cổ đông thường niên 2026', date: '25/03/2026', href: '#' },
+        ],
+      },
+      {
+        name: 'Hội đồng quản trị',
+        documents: [
+          { title: 'Nghị quyết HĐQT về kế hoạch kinh doanh năm 2026', date: '15/01/2026', href: '#' },
+          { title: 'Nghị quyết HĐQT về công tác nhân sự', date: '05/09/2025', href: '#' },
+        ],
+      },
+      {
+        name: 'Khác',
+        documents: [
+          { title: 'Công bố thông tin về việc thay đổi thông tin doanh nghiệp', date: '12/06/2025', href: '#' },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Quản trị công ty',
+    groups: [
+      {
+        name: 'Đăng ký kinh doanh',
+        documents: [
+          { title: 'Giấy chứng nhận đăng ký doanh nghiệp', date: '05/12/2023', href: '#' },
+        ],
+      },
+      {
+        name: 'Quy chế quản trị công ty',
+        documents: [
+          { title: 'Quy chế quản trị công ty', date: '20/01/2024', href: '#' },
+          { title: 'Quy chế hoạt động của Hội đồng quản trị', date: '20/01/2024', href: '#' },
+        ],
+      },
+      {
+        name: 'Điều lệ',
+        documents: [
+          { title: 'Điều lệ Công ty Cổ phần Đầu tư và Phát triển VDF', date: '05/12/2023', href: '#' },
+        ],
+      },
+    ],
+  },
+]
+
 // Link nội bộ dùng đường dẫn '/...' (điều hướng router, có màn trượt);
 // link ngoài dùng 'https://...' (mở tab mới).
 export const FOOTER_COLUMNS = [
@@ -442,7 +524,7 @@ export const FOOTER_COLUMNS = [
   {
     title: 'Công ty',
     links: [
-      { label: 'Quan hệ cổ đông', to: 'https://vdf.vn/qhcd' },
+      { label: 'Quan hệ cổ đông', to: '/quan-he-co-dong' },
       { label: 'Tuyển dụng', to: 'https://vdf.vn/jobs' },
       { label: 'Liên hệ', to: '/#contact' },
     ],
