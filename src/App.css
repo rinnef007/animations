@@ -23,6 +23,9 @@
 .subpage {
   min-height: 70vh;
   padding-bottom: 40px;
+  /* nổi trên watermark của footer */
+  position: relative;
+  z-index: 1;
 }
 
 .page-hero {
@@ -1132,6 +1135,8 @@
 
 .cta {
   position: relative;
+  /* nổi trên watermark của footer */
+  z-index: 1;
   margin-top: 60px;
   min-height: 520px;
   display: flex;
@@ -1252,8 +1257,11 @@
   text-align: center;
   margin-top: -6.5vw;
   position: relative;
-  z-index: 2;
+  /* nằm sau toàn bộ nội dung trang */
+  z-index: 0;
   pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .footer__watermark span {
