@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { CONTACT } from '../data.js'
 
 const fadeUp = {
   hidden: { y: 32, opacity: 0 },
@@ -9,7 +11,51 @@ const fadeUp = {
   }),
 }
 
+const MESSAGES = {
+  success: 'Đăng ký thành công! Cảm ơn bạn đã quan tâm đến VDF INVEST.',
+  mailto:
+    'Trình soạn email của bạn đã được mở — hãy bấm gửi để hoàn tất đăng ký.',
+  error: 'Có lỗi xảy ra khi gửi. Vui lòng thử lại sau ít phút.',
+}
+
 export default function Cta() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState('idle') // idle | sending | success | mailto | error
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    if (status === 'sending') return
+
+    const endpoint = CONTACT.newsletterEndpoint
+    if (!endpoint) {
+      // Chưa cấu hình dịch vụ gửi form — mở trình soạn email thay thế.
+      const subject = encodeURIComponent('Đăng ký nhận tin VDF INVEST')
+      const body = encodeURIComponent(
+        `Tôi muốn đăng ký nhận bản tin của VDF INVEST.\nEmail: ${email}`,
+      )
+      window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`
+      setStatus('mailto')
+      return
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      setStatus('success')
+      setEmail('')
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section className="cta" id="contact">
       <img
@@ -41,7 +87,7 @@ export default function Cta() {
         </motion.p>
         <motion.form
           className="cta__form"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={onSubmit}
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
@@ -52,10 +98,16 @@ export default function Cta() {
             type="email"
             placeholder="Email của bạn"
             aria-label="Email của bạn"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value)
+              if (status !== 'idle' && status !== 'sending') setStatus('idle')
+            }}
             required
           />
           <motion.button
             type="submit"
+            disabled={status === 'sending'}
             initial={{ scale: 0.6, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true, margin: '-15% 0px' }}
@@ -65,9 +117,25 @@ export default function Cta() {
               ease: [0.34, 1.56, 0.64, 1],
             }}
           >
-            Đăng ký ngay
+            {status === 'sending' ? 'Đang gửi…' : 'Đăng ký ngay'}
           </motion.button>
         </motion.form>
+        <AnimatePresence mode="wait">
+          {(status === 'success' || status === 'mailto' || status === 'error') && (
+            <motion.p
+              className={`cta__status ${status === 'error' ? 'cta__status--error' : ''}`}
+              key={status}
+              role="status"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {status !== 'error' && <span aria-hidden="true">✓ </span>}
+              {MESSAGES[status]}
+            </motion.p>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )

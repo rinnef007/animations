@@ -38,6 +38,19 @@ npm run dev      # http://localhost:5173
 npm run build    # production build in dist/
 ```
 
+## Newsletter form
+
+The signup form in the contact section posts to a Formspree endpoint:
+
+1. Create a free form at https://formspree.io targeting the company
+   email (investvdf@gmail.com) and copy its endpoint
+   (`https://formspree.io/f/xxxxxxxx`).
+2. Paste it into `newsletterEndpoint` in `src/data.js` (`CONTACT`).
+
+While the endpoint is empty, submitting the form opens the visitor's
+email client with a prefilled registration message instead — so the
+form is functional either way.
+
 ## Deploy (SPA fallback)
 
 The site uses client-side routing (`/linh-vuc`, `/du-an`, `/tin-tuc`), so

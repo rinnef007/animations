@@ -433,4 +433,9 @@ export const CONTACT = {
     'Tầng 10, tòa nhà Lilama10, đường Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội',
   phone: '+84 382.156.168',
   email: 'investvdf@gmail.com',
+  // Form "Đăng ký nhận tin": tạo form miễn phí tại https://formspree.io
+  // (trỏ về email công ty) rồi dán endpoint vào đây, dạng:
+  // 'https://formspree.io/f/xxxxxxxx'
+  // Khi để trống, form sẽ mở trình soạn email của người dùng thay thế.
+  newsletterEndpoint: '',
 }
