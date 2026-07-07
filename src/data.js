@@ -419,7 +419,8 @@ export function findArticleBySlug(slug) {
 }
 
 // Trang Quan hệ cổ đông — tài liệu là placeholder minh họa:
-// thay `href: '#'` bằng đường dẫn file PDF thật khi có.
+// Thay file PDF minh họa trong public/documents bằng bản chính thức (giữ tên file),
+// hoặc cập nhật href tại đây.
 export const SHAREHOLDER_SECTIONS = [
   {
     title: 'Báo cáo',
@@ -427,23 +428,23 @@ export const SHAREHOLDER_SECTIONS = [
       {
         name: 'Báo cáo thường niên',
         documents: [
-          { title: 'Báo cáo thường niên năm 2025', date: '15/04/2026', href: '#' },
-          { title: 'Báo cáo thường niên năm 2024', date: '18/04/2025', href: '#' },
+          { title: 'Báo cáo thường niên năm 2025', date: '15/04/2026', href: '/documents/bao-cao-thuong-nien-2025.pdf' },
+          { title: 'Báo cáo thường niên năm 2024', date: '18/04/2025', href: '/documents/bao-cao-thuong-nien-2024.pdf' },
         ],
       },
       {
         name: 'Báo cáo tài chính',
         documents: [
-          { title: 'Báo cáo tài chính kiểm toán năm 2025', date: '30/03/2026', href: '#' },
-          { title: 'Báo cáo tài chính bán niên năm 2025', date: '15/08/2025', href: '#' },
-          { title: 'Báo cáo tài chính kiểm toán năm 2024', date: '28/03/2025', href: '#' },
+          { title: 'Báo cáo tài chính kiểm toán năm 2025', date: '30/03/2026', href: '/documents/bctc-kiem-toan-2025.pdf' },
+          { title: 'Báo cáo tài chính bán niên năm 2025', date: '15/08/2025', href: '/documents/bctc-ban-nien-2025.pdf' },
+          { title: 'Báo cáo tài chính kiểm toán năm 2024', date: '28/03/2025', href: '/documents/bctc-kiem-toan-2024.pdf' },
         ],
       },
       {
         name: 'Báo cáo quản trị',
         documents: [
-          { title: 'Báo cáo quản trị công ty năm 2025', date: '25/01/2026', href: '#' },
-          { title: 'Báo cáo quản trị công ty bán niên năm 2025', date: '25/07/2025', href: '#' },
+          { title: 'Báo cáo quản trị công ty năm 2025', date: '25/01/2026', href: '/documents/bao-cao-quan-tri-2025.pdf' },
+          { title: 'Báo cáo quản trị công ty bán niên năm 2025', date: '25/07/2025', href: '/documents/bao-cao-quan-tri-ban-nien-2025.pdf' },
         ],
       },
     ],
@@ -454,22 +455,22 @@ export const SHAREHOLDER_SECTIONS = [
       {
         name: 'Đại hội đồng cổ đông',
         documents: [
-          { title: 'Nghị quyết Đại hội đồng cổ đông thường niên 2026', date: '28/04/2026', href: '#' },
-          { title: 'Tài liệu họp Đại hội đồng cổ đông thường niên 2026', date: '10/04/2026', href: '#' },
-          { title: 'Thông báo mời họp Đại hội đồng cổ đông thường niên 2026', date: '25/03/2026', href: '#' },
+          { title: 'Nghị quyết Đại hội đồng cổ đông thường niên 2026', date: '28/04/2026', href: '/documents/nghi-quyet-dhdcd-2026.pdf' },
+          { title: 'Tài liệu họp Đại hội đồng cổ đông thường niên 2026', date: '10/04/2026', href: '/documents/tai-lieu-hop-dhdcd-2026.pdf' },
+          { title: 'Thông báo mời họp Đại hội đồng cổ đông thường niên 2026', date: '25/03/2026', href: '/documents/thong-bao-moi-hop-dhdcd-2026.pdf' },
         ],
       },
       {
         name: 'Hội đồng quản trị',
         documents: [
-          { title: 'Nghị quyết HĐQT về kế hoạch kinh doanh năm 2026', date: '15/01/2026', href: '#' },
-          { title: 'Nghị quyết HĐQT về công tác nhân sự', date: '05/09/2025', href: '#' },
+          { title: 'Nghị quyết HĐQT về kế hoạch kinh doanh năm 2026', date: '15/01/2026', href: '/documents/nghi-quyet-hdqt-ke-hoach-2026.pdf' },
+          { title: 'Nghị quyết HĐQT về công tác nhân sự', date: '05/09/2025', href: '/documents/nghi-quyet-hdqt-nhan-su.pdf' },
         ],
       },
       {
         name: 'Khác',
         documents: [
-          { title: 'Công bố thông tin về việc thay đổi thông tin doanh nghiệp', date: '12/06/2025', href: '#' },
+          { title: 'Công bố thông tin về việc thay đổi thông tin doanh nghiệp', date: '12/06/2025', href: '/documents/cbtt-thay-doi-thong-tin.pdf' },
         ],
       },
     ],
@@ -480,20 +481,20 @@ export const SHAREHOLDER_SECTIONS = [
       {
         name: 'Đăng ký kinh doanh',
         documents: [
-          { title: 'Giấy chứng nhận đăng ký doanh nghiệp', date: '05/12/2023', href: '#' },
+          { title: 'Giấy chứng nhận đăng ký doanh nghiệp', date: '05/12/2023', href: '/documents/giay-chung-nhan-dkdn.pdf' },
         ],
       },
       {
         name: 'Quy chế quản trị công ty',
         documents: [
-          { title: 'Quy chế quản trị công ty', date: '20/01/2024', href: '#' },
-          { title: 'Quy chế hoạt động của Hội đồng quản trị', date: '20/01/2024', href: '#' },
+          { title: 'Quy chế quản trị công ty', date: '20/01/2024', href: '/documents/quy-che-quan-tri.pdf' },
+          { title: 'Quy chế hoạt động của Hội đồng quản trị', date: '20/01/2024', href: '/documents/quy-che-hoat-dong-hdqt.pdf' },
         ],
       },
       {
         name: 'Điều lệ',
         documents: [
-          { title: 'Điều lệ Công ty Cổ phần Đầu tư và Phát triển VDF', date: '05/12/2023', href: '#' },
+          { title: 'Điều lệ Công ty Cổ phần Đầu tư và Phát triển VDF', date: '05/12/2023', href: '/documents/dieu-le-cong-ty.pdf' },
         ],
       },
     ],

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import PageTransition from '../components/PageTransition.jsx'
@@ -33,8 +33,101 @@ function FileIcon() {
   )
 }
 
+// Trình xem tài liệu: PDF hiển thị trong overlay, kèm tải xuống / mở tab mới.
+function DocViewer({ doc, onClose }) {
+  const closeRef = useRef(null)
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key === 'Escape') onClose()
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    // iframe PDF sẽ chiếm focus khiến phím ESC không tới được window —
+    // đưa focus về nút Đóng ngay khi mở.
+    closeRef.current?.focus()
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [onClose])
+
+  const hasFile = doc.href && doc.href !== '#'
+
+  return (
+    <motion.div
+      className="doc-viewer"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="doc-viewer__panel"
+        data-lenis-prevent
+        initial={{ y: 48, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 32, opacity: 0 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <header className="doc-viewer__head">
+          <div className="doc-viewer__info">
+            <span className="doc-viewer__icon">
+              <FileIcon />
+            </span>
+            <div>
+              <h3>{doc.title}</h3>
+              <span>Ngày ban hành: {doc.date}</span>
+            </div>
+          </div>
+          <div className="doc-viewer__actions">
+            {hasFile && (
+              <>
+                <a className="doc-viewer__btn" href={doc.href} download>
+                  Tải xuống
+                </a>
+                <a
+                  className="doc-viewer__btn"
+                  href={doc.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Mở tab mới
+                </a>
+              </>
+            )}
+            <button
+              type="button"
+              ref={closeRef}
+              className="doc-viewer__close"
+              aria-label="Đóng"
+              onClick={onClose}
+            >
+              ✕
+            </button>
+          </div>
+        </header>
+        {hasFile ? (
+          <iframe
+            className="doc-viewer__frame"
+            src={`${doc.href}#toolbar=0&navpanes=0`}
+            title={doc.title}
+          />
+        ) : (
+          <div className="doc-viewer__empty">
+            Tài liệu đang được cập nhật. Vui lòng quay lại sau.
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function ShareholderPage() {
   const [active, setActive] = useState(SHAREHOLDER_SECTIONS[0].title)
+  const [viewing, setViewing] = useState(null)
   const section = SHAREHOLDER_SECTIONS.find((item) => item.title === active)
 
   return (
@@ -108,11 +201,10 @@ export default function ShareholderPage() {
                   <ul className="doc-list">
                     {group.documents.map((doc) => (
                       <li key={doc.title}>
-                        <a
+                        <button
+                          type="button"
                           className="doc-row"
-                          href={doc.href}
-                          target={doc.href.startsWith('http') ? '_blank' : undefined}
-                          rel={doc.href.startsWith('http') ? 'noreferrer' : undefined}
+                          onClick={() => setViewing(doc)}
                         >
                           <span className="doc-row__icon">
                             <FileIcon />
@@ -122,7 +214,7 @@ export default function ShareholderPage() {
                           <span className="doc-row__action">
                             Xem tài liệu <span aria-hidden="true">→</span>
                           </span>
-                        </a>
+                        </button>
                       </li>
                     ))}
                   </ul>
@@ -132,6 +224,9 @@ export default function ShareholderPage() {
           </AnimatePresence>
         </div>
       </main>
+      <AnimatePresence>
+        {viewing && <DocViewer doc={viewing} onClose={() => setViewing(null)} />}
+      </AnimatePresence>
     </PageTransition>
   )
 }
