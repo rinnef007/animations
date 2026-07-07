@@ -907,9 +907,10 @@
 }
 
 .article-card__media {
+  display: block;
   border-radius: var(--radius-card);
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .article-card__media img {
