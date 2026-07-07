@@ -11,6 +11,8 @@ import ProjectsPage from './pages/ProjectsPage.jsx'
 import NewsPage from './pages/NewsPage.jsx'
 import ArticlePage from './pages/ArticlePage.jsx'
 import ShareholderPage from './pages/ShareholderPage.jsx'
+import JobsPage from './pages/JobsPage.jsx'
+import JobDetailPage from './pages/JobDetailPage.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -45,6 +47,8 @@ export default function App() {
           <Route path="/tin-tuc" element={<NewsPage />} />
           <Route path="/tin-tuc/:slug" element={<ArticlePage />} />
           <Route path="/quan-he-co-dong" element={<ShareholderPage />} />
+          <Route path="/tuyen-dung" element={<JobsPage />} />
+          <Route path="/tuyen-dung/:slug" element={<JobDetailPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AnimatePresence>

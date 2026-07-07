@@ -418,6 +418,216 @@ export function findArticleBySlug(slug) {
   return null
 }
 
+// Trang Tuyển dụng — vị trí minh họa, cập nhật theo nhu cầu thực tế tại đây.
+export const JOBS = [
+  {
+    slug: 'ky-su-xay-dung',
+    title: 'Kỹ sư xây dựng',
+    department: 'Khối Xây dựng',
+    location: 'Hà Nội',
+    type: 'Toàn thời gian',
+    quantity: 2,
+    deadline: '30/06/2026',
+    salary: 'Thỏa thuận',
+    summary:
+      'Tham gia quản lý, giám sát và triển khai thi công các công trình hạ tầng, dân dụng và công nghiệp của VDF INVEST.',
+    body: [
+      {
+        heading: 'Mô tả công việc',
+        items: [
+          'Triển khai, giám sát thi công công trình theo đúng thiết kế, tiến độ và tiêu chuẩn kỹ thuật.',
+          'Bóc tách khối lượng, lập biện pháp thi công và phối hợp với các nhà thầu phụ.',
+          'Kiểm soát chất lượng, an toàn lao động và nghiệm thu từng hạng mục.',
+          'Lập báo cáo tiến độ và đề xuất giải pháp xử lý phát sinh tại công trường.',
+        ],
+      },
+      {
+        heading: 'Yêu cầu',
+        items: [
+          'Tốt nghiệp đại học chuyên ngành Xây dựng dân dụng & công nghiệp hoặc tương đương.',
+          'Tối thiểu 2 năm kinh nghiệm ở vị trí tương đương.',
+          'Sử dụng thành thạo AutoCAD, MS Project và phần mềm dự toán.',
+          'Chịu được áp lực công việc, sẵn sàng đi công trình.',
+        ],
+      },
+      {
+        heading: 'Quyền lợi',
+        items: [
+          'Thu nhập cạnh tranh, xét tăng lương định kỳ theo năng lực.',
+          'Đóng BHXH, BHYT đầy đủ theo quy định; thưởng lễ, Tết, dự án.',
+          'Môi trường chuyên nghiệp, cơ hội phát triển cùng các dự án trọng điểm.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'chuyen-vien-dau-tu',
+    title: 'Chuyên viên đầu tư',
+    department: 'Khối Đầu tư',
+    location: 'Hà Nội',
+    type: 'Toàn thời gian',
+    quantity: 1,
+    deadline: '15/07/2026',
+    salary: 'Thỏa thuận',
+    summary:
+      'Phân tích, thẩm định và phát triển các cơ hội đầu tư trong lĩnh vực năng lượng tái tạo và hạ tầng giao thông.',
+    body: [
+      {
+        heading: 'Mô tả công việc',
+        items: [
+          'Nghiên cứu thị trường, sàng lọc và đánh giá cơ hội đầu tư tiềm năng.',
+          'Xây dựng mô hình tài chính, phân tích hiệu quả và rủi ro dự án.',
+          'Chuẩn bị hồ sơ, tài liệu trình Ban lãnh đạo và làm việc với đối tác.',
+          'Theo dõi, giám sát danh mục đầu tư sau khi giải ngân.',
+        ],
+      },
+      {
+        heading: 'Yêu cầu',
+        items: [
+          'Tốt nghiệp đại học chuyên ngành Tài chính, Kinh tế, Đầu tư hoặc tương đương.',
+          'Tối thiểu 2 năm kinh nghiệm trong lĩnh vực đầu tư/tài chính dự án.',
+          'Thành thạo mô hình tài chính, phân tích định lượng và tiếng Anh.',
+          'Tư duy logic, cẩn thận và trung thực.',
+        ],
+      },
+      {
+        heading: 'Quyền lợi',
+        items: [
+          'Mức lương hấp dẫn theo năng lực và kết quả công việc.',
+          'Thưởng theo hiệu quả dự án và kết quả kinh doanh.',
+          'Được đào tạo và tham gia các dự án đầu tư quy mô lớn.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'ky-su-nang-luong-tai-tao',
+    title: 'Kỹ sư năng lượng tái tạo',
+    department: 'Khối Đầu tư',
+    location: 'Hà Nội / Công trường',
+    type: 'Toàn thời gian',
+    quantity: 2,
+    deadline: '31/07/2026',
+    salary: 'Thỏa thuận',
+    summary:
+      'Thiết kế, triển khai và vận hành các hệ thống điện gió, điện mặt trời trong danh mục dự án của công ty.',
+    body: [
+      {
+        heading: 'Mô tả công việc',
+        items: [
+          'Khảo sát, thiết kế và tính toán phương án hệ thống điện mặt trời, điện gió.',
+          'Giám sát lắp đặt, đấu nối và nghiệm thu hệ thống.',
+          'Theo dõi hiệu suất vận hành, đề xuất giải pháp tối ưu và bảo trì.',
+          'Phối hợp với đối tác thiết bị và đơn vị thi công.',
+        ],
+      },
+      {
+        heading: 'Yêu cầu',
+        items: [
+          'Tốt nghiệp đại học chuyên ngành Điện, Năng lượng hoặc tương đương.',
+          'Có kinh nghiệm với hệ thống điện mặt trời/điện gió là lợi thế.',
+          'Nắm vững tiêu chuẩn kỹ thuật và quy định về an toàn điện.',
+          'Sẵn sàng công tác tại công trường.',
+        ],
+      },
+      {
+        heading: 'Quyền lợi',
+        items: [
+          'Thu nhập cạnh tranh, phụ cấp công trường.',
+          'Đóng bảo hiểm đầy đủ, thưởng lễ Tết và dự án.',
+          'Làm việc trong lĩnh vực năng lượng xanh giàu tiềm năng phát triển.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'chuyen-vien-quan-ly-du-an',
+    title: 'Chuyên viên quản lý dự án',
+    department: 'Khối Xây dựng',
+    location: 'Hà Nội',
+    type: 'Toàn thời gian',
+    quantity: 1,
+    deadline: '20/07/2026',
+    salary: 'Thỏa thuận',
+    summary:
+      'Điều phối tổng thể dự án từ khâu chuẩn bị đến bàn giao, kiểm soát tiến độ, chi phí và chất lượng.',
+    body: [
+      {
+        heading: 'Mô tả công việc',
+        items: [
+          'Lập kế hoạch, điều phối nguồn lực và theo dõi tiến độ dự án.',
+          'Kiểm soát chi phí, chất lượng và quản lý rủi ro trong suốt vòng đời dự án.',
+          'Làm đầu mối phối hợp giữa các bên: chủ đầu tư, nhà thầu, tư vấn.',
+          'Lập báo cáo định kỳ trình Ban lãnh đạo.',
+        ],
+      },
+      {
+        heading: 'Yêu cầu',
+        items: [
+          'Tốt nghiệp đại học chuyên ngành Xây dựng, Quản lý dự án hoặc tương đương.',
+          'Tối thiểu 3 năm kinh nghiệm quản lý dự án.',
+          'Kỹ năng lập kế hoạch, tổ chức và giao tiếp tốt.',
+          'Ưu tiên có chứng chỉ quản lý dự án (PMP hoặc tương đương).',
+        ],
+      },
+      {
+        heading: 'Quyền lợi',
+        items: [
+          'Lương thưởng xứng đáng theo năng lực và quy mô dự án.',
+          'Chế độ phúc lợi đầy đủ, môi trường làm việc chuyên nghiệp.',
+          'Cơ hội thăng tiến lên vị trí quản lý cấp cao.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'nhan-vien-kinh-doanh',
+    title: 'Nhân viên kinh doanh',
+    department: 'Khối Thương mại & Dịch vụ',
+    location: 'Hà Nội',
+    type: 'Toàn thời gian',
+    quantity: 3,
+    deadline: '31/07/2026',
+    salary: 'Lương cứng + hoa hồng',
+    summary:
+      'Phát triển thị trường, tìm kiếm và chăm sóc khách hàng cho mảng thương mại – dịch vụ của công ty.',
+    body: [
+      {
+        heading: 'Mô tả công việc',
+        items: [
+          'Tìm kiếm, tiếp cận và phát triển khách hàng, đối tác mới.',
+          'Tư vấn, giới thiệu sản phẩm – dịch vụ và đàm phán hợp đồng.',
+          'Chăm sóc, duy trì mối quan hệ với khách hàng hiện hữu.',
+          'Đạt chỉ tiêu doanh số được giao và lập báo cáo kinh doanh.',
+        ],
+      },
+      {
+        heading: 'Yêu cầu',
+        items: [
+          'Tốt nghiệp cao đẳng/đại học các ngành Kinh tế, Quản trị kinh doanh, Marketing.',
+          'Kỹ năng giao tiếp, đàm phán và chăm sóc khách hàng tốt.',
+          'Chủ động, nhiệt tình và chịu được áp lực doanh số.',
+          'Ưu tiên ứng viên có kinh nghiệm kinh doanh liên quan.',
+        ],
+      },
+      {
+        heading: 'Quyền lợi',
+        items: [
+          'Lương cứng cạnh tranh cùng hoa hồng và thưởng doanh số hấp dẫn.',
+          'Đóng bảo hiểm đầy đủ, thưởng lễ Tết.',
+          'Được đào tạo kỹ năng và lộ trình thăng tiến rõ ràng.',
+        ],
+      },
+    ],
+  },
+]
+
+export const jobUrl = (job) => `/tuyen-dung/${job.slug}`
+
+export function findJobBySlug(slug) {
+  return JOBS.find((job) => job.slug === slug) || null
+}
+
 // Trang Quan hệ cổ đông — tài liệu là placeholder minh họa:
 // Thay file PDF minh họa trong public/documents bằng bản chính thức (giữ tên file),
 // hoặc cập nhật href tại đây.
@@ -526,7 +736,7 @@ export const FOOTER_COLUMNS = [
     title: 'Công ty',
     links: [
       { label: 'Quan hệ cổ đông', to: '/quan-he-co-dong' },
-      { label: 'Tuyển dụng', to: 'https://vdf.vn/jobs' },
+      { label: 'Tuyển dụng', to: '/tuyen-dung' },
       { label: 'Liên hệ', to: '/#contact' },
     ],
   },
