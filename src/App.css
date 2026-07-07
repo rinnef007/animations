@@ -148,6 +148,11 @@
   padding-bottom: 40px;
 }
 
+.news-page__nav {
+  margin-top: 0;
+  padding-bottom: 30px;
+}
+
 .news-grid .article-card {
   margin-bottom: 0;
 }

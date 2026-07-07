@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import PageTransition from '../components/PageTransition.jsx'
@@ -14,10 +14,46 @@ const fadeUp = {
   }),
 }
 
+const pad = (n) => String(n).padStart(2, '0')
+
+// Số bài mỗi trang theo loại màn hình:
+// mobile (≤900px, lưới 1 cột): 3 — tablet (≤1199px): 4 — desktop: 6.
+const getPageSize = () =>
+  window.innerWidth <= 900 ? 3 : window.innerWidth <= 1199 ? 4 : 6
+
+function usePageSize() {
+  const [size, setSize] = useState(getPageSize)
+  useEffect(() => {
+    const onResize = () => setSize(getPageSize())
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  return size
+}
+
 export default function NewsPage() {
   const [category, setCategory] = useState('Mới nhất')
+  const [page, setPage] = useState(0)
+  const pageSize = usePageSize()
+  const gridTopRef = useRef(null)
+
   const allArticles = useMemo(collectAllArticles, [])
   const articles = category === 'Mới nhất' ? allArticles : ARTICLES[category]
+
+  const totalPages = Math.max(1, Math.ceil(articles.length / pageSize))
+  // Đổi cỡ màn hình có thể làm trang hiện tại vượt quá tổng số trang.
+  const safePage = Math.min(page, totalPages - 1)
+  const visible = articles.slice(safePage * pageSize, (safePage + 1) * pageSize)
+
+  const goPage = (dir) => {
+    setPage((safePage + dir + totalPages) % totalPages)
+    // Đưa người xem về đầu danh sách khi sang trang mới.
+    if (gridTopRef.current) {
+      const lenis = window.__lenis
+      if (lenis) lenis.scrollTo(gridTopRef.current, { offset: -110 })
+      else gridTopRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <PageTransition title="Tin tức & sự kiện">
@@ -40,6 +76,7 @@ export default function NewsPage() {
 
           <motion.div
             className="news-tabs"
+            ref={gridTopRef}
             variants={fadeUp}
             initial="hidden"
             animate="show"
@@ -50,7 +87,10 @@ export default function NewsPage() {
                 key={item}
                 type="button"
                 className={item === category ? 'is-active' : ''}
-                onClick={() => setCategory(item)}
+                onClick={() => {
+                  setCategory(item)
+                  setPage(0)
+                }}
               >
                 {item}
               </button>
@@ -60,7 +100,7 @@ export default function NewsPage() {
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               className="news-grid"
-              key={category}
+              key={`${category}-${safePage}-${pageSize}`}
               initial={{ opacity: 0, y: 24 }}
               animate={{
                 opacity: 1,
@@ -69,7 +109,7 @@ export default function NewsPage() {
               }}
               exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
             >
-              {articles.map((article, i) => (
+              {visible.map((article, i) => (
                 <ArticleCard
                   key={article.slug}
                   article={article}
@@ -78,6 +118,31 @@ export default function NewsPage() {
               ))}
             </motion.div>
           </AnimatePresence>
+
+          {totalPages > 1 && (
+            <div className="articles__nav news-page__nav">
+              <span className="articles__counter">
+                {pad(safePage + 1)} <span>/ {pad(totalPages)}</span>
+              </span>
+              <div className="articles__arrows">
+                <button
+                  type="button"
+                  aria-label="Trang trước"
+                  onClick={() => goPage(-1)}
+                >
+                  Trước
+                </button>
+                <button
+                  type="button"
+                  className="articles__next"
+                  aria-label="Trang sau"
+                  onClick={() => goPage(1)}
+                >
+                  Sau <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </PageTransition>
