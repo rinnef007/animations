@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageTransition from '../components/PageTransition.jsx'
-import { ArticleCard } from '../components/Articles.jsx'
+import { ArticleCard, collectAllArticles } from '../components/Articles.jsx'
 import NotFound from './NotFound.jsx'
 import { ARTICLES, findArticleBySlug } from '../data.js'
 
@@ -21,9 +21,16 @@ export default function ArticlePage() {
   if (!found) return <NotFound />
 
   const { article, category } = found
-  const related = (ARTICLES[category] ?? [])
-    .filter((item) => item.slug !== slug)
-    .slice(0, 2)
+  // Ưu tiên bài cùng danh mục; nếu chưa đủ 2 bài thì bổ sung bài mới nhất
+  // từ các danh mục khác cho lưới luôn cân đối.
+  const sameCategory = (ARTICLES[category] ?? []).filter(
+    (item) => item.slug !== slug,
+  )
+  const fillers = collectAllArticles().filter(
+    (item) =>
+      item.slug !== slug && !sameCategory.some((s) => s.slug === item.slug),
+  )
+  const related = [...sameCategory, ...fillers].slice(0, 2)
 
   return (
     <PageTransition title={article.title}>

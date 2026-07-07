@@ -1105,7 +1105,9 @@
 }
 
 .article-related {
-  padding: 40px 0 30px;
+  /* chỉ đặt lề dọc — giữ nguyên lề ngang của .shell */
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 .article-related__grid {
