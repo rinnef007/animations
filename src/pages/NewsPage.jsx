@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import PageTransition from '../components/PageTransition.jsx'
-import { Reader } from '../components/Articles.jsx'
+import { ArticleCard, collectAllArticles } from '../components/Articles.jsx'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
 
 const fadeUp = {
@@ -14,26 +14,9 @@ const fadeUp = {
   }),
 }
 
-const dateKey = (d) => (d || '').split('/').reverse().join('')
-
 export default function NewsPage() {
   const [category, setCategory] = useState('Mới nhất')
-  const [reading, setReading] = useState(null)
-
-  const allArticles = useMemo(() => {
-    const seen = new Set()
-    const list = []
-    for (const cat of ARTICLE_CATEGORIES) {
-      for (const article of ARTICLES[cat] ?? []) {
-        if (!seen.has(article.title)) {
-          seen.add(article.title)
-          list.push(article)
-        }
-      }
-    }
-    return list.sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)))
-  }, [])
-
+  const allArticles = useMemo(collectAllArticles, [])
   const articles = category === 'Mới nhất' ? allArticles : ARTICLES[category]
 
   return (
@@ -87,63 +70,16 @@ export default function NewsPage() {
               exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
             >
               {articles.map((article, i) => (
-                <motion.article
-                  className="article-card"
-                  key={article.title}
-                  initial={{ opacity: 0, y: 36 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-6% 0px' }}
-                  transition={{
-                    duration: 0.8,
-                    delay: (i % 2) * 0.1,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <div
-                    className="article-card__media article-card__clickable"
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`Đọc bài: ${article.title}`}
-                    onClick={() => setReading(article)}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault()
-                        setReading(article)
-                      }
-                    }}
-                  >
-                    <img src={article.image} alt={article.title} loading="lazy" />
-                  </div>
-                  <span className="article-card__date">{article.date}</span>
-                  <h3
-                    className="article-card__clickable article-card__title"
-                    onClick={() => setReading(article)}
-                  >
-                    {article.title}
-                  </h3>
-                  <p>{article.excerpt}</p>
-                  <button
-                    type="button"
-                    className="article-card__link"
-                    onClick={() => setReading(article)}
-                  >
-                    Tìm hiểu thêm
-                  </button>
-                </motion.article>
+                <ArticleCard
+                  key={article.slug}
+                  article={article}
+                  delay={(i % 2) * 0.1}
+                />
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
       </main>
-      <AnimatePresence>
-        {reading && (
-          <Reader
-            article={reading}
-            category={category}
-            onClose={() => setReading(null)}
-          />
-        )}
-      </AnimatePresence>
     </PageTransition>
   )
 }

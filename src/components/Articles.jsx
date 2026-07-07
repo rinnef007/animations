@@ -1,96 +1,62 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ARTICLES, ARTICLE_CATEGORIES } from '../data.js'
+import { ARTICLES, ARTICLE_CATEGORIES, articleUrl } from '../data.js'
 
 const PAGE_SIZE = 3
 const pad = (n) => String(n).padStart(2, '0')
 // dd/mm/yyyy -> yyyymmdd để so sánh
 const dateKey = (d) => (d || '').split('/').reverse().join('')
 
-export function Reader({ article, category, onClose }) {
-  useEffect(() => {
-    const onKey = (event) => {
-      if (event.key === 'Escape') onClose()
+// 'Mới nhất' tổng hợp mọi bài viết từ các danh mục, mới nhất trước.
+export function collectAllArticles() {
+  const seen = new Set()
+  const list = []
+  for (const cat of ARTICLE_CATEGORIES) {
+    for (const article of ARTICLES[cat] ?? []) {
+      if (!seen.has(article.slug)) {
+        seen.add(article.slug)
+        list.push(article)
+      }
     }
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', onKey)
-    return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [onClose])
+  }
+  return list.sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)))
+}
 
+export function ArticleCard({ article, delay = 0 }) {
+  const url = articleUrl(article)
   return (
-    <motion.div
-      className="reader"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.35 }}
-      onClick={onClose}
+    <motion.article
+      className="article-card"
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-6% 0px' }}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
     >
-      <motion.article
-        className="reader__panel"
-        data-lenis-prevent
-        initial={{ y: 64, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 40, opacity: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        onClick={(event) => event.stopPropagation()}
+      <Link
+        className="article-card__media article-card__clickable"
+        to={url}
+        aria-label={`Đọc bài: ${article.title}`}
       >
-        <button
-          type="button"
-          className="reader__close"
-          aria-label="Đóng bài viết"
-          onClick={onClose}
-        >
-          ✕
-        </button>
-        <img className="reader__cover" src={article.image} alt={article.title} />
-        <div className="reader__content">
-          <div className="reader__meta">
-            <span className="reader__tag">{category}</span>
-            <span className="reader__date">{article.date}</span>
-          </div>
-          <h2>{article.title}</h2>
-          {article.body.map((section, i) => (
-            <section key={i}>
-              {section.heading && <h3>{section.heading}</h3>}
-              {section.text && <p>{section.text}</p>}
-              {section.image && (
-                <figure>
-                  <img src={section.image} alt={section.caption || ''} loading="lazy" />
-                  {section.caption && <figcaption>{section.caption}</figcaption>}
-                </figure>
-              )}
-            </section>
-          ))}
-        </div>
-      </motion.article>
-    </motion.div>
+        <img src={article.image} alt={article.title} loading="lazy" />
+      </Link>
+      <span className="article-card__date">{article.date}</span>
+      <h3 className="article-card__title">
+        <Link to={url}>{article.title}</Link>
+      </h3>
+      <p>{article.excerpt}</p>
+      <Link className="article-card__link" to={url}>
+        Tìm hiểu thêm
+      </Link>
+    </motion.article>
   )
 }
 
 export default function Articles() {
   const [category, setCategory] = useState('Mới nhất')
   const [page, setPage] = useState(0)
-  const [reading, setReading] = useState(null)
 
-  // 'Mới nhất' tổng hợp mọi bài viết từ các danh mục, mới nhất trước.
-  const allArticles = useMemo(() => {
-    const seen = new Set()
-    const list = []
-    for (const cat of ARTICLE_CATEGORIES) {
-      for (const article of ARTICLES[cat] ?? []) {
-        if (!seen.has(article.title)) {
-          seen.add(article.title)
-          list.push(article)
-        }
-      }
-    }
-    return list.sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)))
-  }, [])
+  const allArticles = useMemo(collectAllArticles, [])
 
   const articles = category === 'Mới nhất' ? allArticles : ARTICLES[category]
   const totalPages = Math.ceil(articles.length / PAGE_SIZE)
@@ -146,49 +112,7 @@ export default function Articles() {
                 exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
               >
                 {visible.map((article, i) => (
-                  <motion.article
-                    className="article-card"
-                    key={article.title}
-                    initial={{ opacity: 0, y: 36 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-8% 0px' }}
-                    transition={{
-                      duration: 0.8,
-                      delay: i * 0.1,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                  >
-                    <div
-                      className="article-card__media article-card__clickable"
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`Đọc bài: ${article.title}`}
-                      onClick={() => setReading(article)}
-                      onKeyDown={(event) => {
-                        if (event.key === 'Enter' || event.key === ' ') {
-                          event.preventDefault()
-                          setReading(article)
-                        }
-                      }}
-                    >
-                      <img src={article.image} alt={article.title} loading="lazy" />
-                    </div>
-                    <span className="article-card__date">{article.date}</span>
-                    <h3
-                      className="article-card__clickable article-card__title"
-                      onClick={() => setReading(article)}
-                    >
-                      {article.title}
-                    </h3>
-                    <p>{article.excerpt}</p>
-                    <button
-                      type="button"
-                      className="article-card__link"
-                      onClick={() => setReading(article)}
-                    >
-                      Tìm hiểu thêm
-                    </button>
-                  </motion.article>
+                  <ArticleCard key={article.slug} article={article} delay={i * 0.1} />
                 ))}
               </motion.div>
             </AnimatePresence>
@@ -219,15 +143,6 @@ export default function Articles() {
           </div>
         </div>
       </div>
-      <AnimatePresence>
-        {reading && (
-          <Reader
-            article={reading}
-            category={category}
-            onClose={() => setReading(null)}
-          />
-        )}
-      </AnimatePresence>
     </section>
   )
 }

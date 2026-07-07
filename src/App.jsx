@@ -9,6 +9,7 @@ import Home from './pages/Home.jsx'
 import ServicesPage from './pages/ServicesPage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import NewsPage from './pages/NewsPage.jsx'
+import ArticlePage from './pages/ArticlePage.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/linh-vuc" element={<ServicesPage />} />
           <Route path="/du-an" element={<ProjectsPage />} />
           <Route path="/tin-tuc" element={<NewsPage />} />
+          <Route path="/tin-tuc/:slug" element={<ArticlePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AnimatePresence>

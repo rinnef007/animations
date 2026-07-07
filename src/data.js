@@ -176,6 +176,7 @@ export const ARTICLES = {
   'Mới nhất': [
     {
       title: 'Xu hướng năng lượng xanh – định hướng phát triển bền vững',
+      slug: 'xu-huong-nang-luong-xanh',
       date: '31/05/2026',
       excerpt:
         'Năng lượng tái tạo đang trở thành trụ cột trong chiến lược phát triển hạ tầng. Cùng nhìn lại những xu hướng điện gió, điện mặt trời nổi bật và định hướng của VDF INVEST trong giai đoạn tới.',
@@ -208,6 +209,7 @@ export const ARTICLES = {
     },
     {
       title: 'VDF Invest hoàn thành mở rộng và cải tạo hạ tầng trạm dịch vụ V52',
+      slug: 'cai-tao-tram-dich-vu-v52',
       date: '19/05/2026',
       excerpt:
         'Công trình mở rộng trạm dịch vụ V52 chính thức hoàn thành, nâng cao năng lực phục vụ và mang đến trải nghiệm dừng nghỉ an toàn, tiện nghi hơn cho người dân trên tuyến cao tốc.',
@@ -236,6 +238,7 @@ export const ARTICLES = {
   'Năng lượng xanh': [
     {
       title: 'Năng lượng xanh trong xây dựng hiện đại',
+      slug: 'nang-luong-xanh-trong-xay-dung-hien-dai',
       date: '12/04/2026',
       excerpt:
         'Từ vật liệu thân thiện môi trường đến điện mặt trời áp mái, các giải pháp năng lượng xanh đang thay đổi cách những công trình được thiết kế, thi công và vận hành.',
@@ -262,6 +265,7 @@ export const ARTICLES = {
     },
     {
       title: 'Điện gió và điện mặt trời: cơ hội đầu tư dài hạn',
+      slug: 'dien-gio-dien-mat-troi-co-hoi-dau-tu-dai-han',
       date: '28/03/2026',
       excerpt:
         'Nhu cầu điện sạch tăng nhanh mở ra dư địa lớn cho các nhà đầu tư hạ tầng năng lượng. Phân tích tiềm năng và những yếu tố cần cân nhắc khi tham gia lĩnh vực này.',
@@ -290,6 +294,7 @@ export const ARTICLES = {
   'Xây dựng': [
     {
       title: '5 yếu tố ảnh hưởng đến chi phí thi công xây dựng năm 2026',
+      slug: '5-yeu-to-anh-huong-chi-phi-thi-cong-2026',
       date: '10/05/2026',
       excerpt:
         'Giá vật liệu, nhân công, thiết kế, tiến độ và thủ tục pháp lý — phân tích năm yếu tố then chốt tác động trực tiếp đến chi phí thi công và cách kiểm soát ngân sách hiệu quả.',
@@ -324,6 +329,7 @@ export const ARTICLES = {
     },
     {
       title: 'Quản lý dự án hiệu quả: kinh nghiệm từ công trường',
+      slug: 'quan-ly-du-an-hieu-qua',
       date: '22/02/2026',
       excerpt:
         'Điều phối nhà thầu, kiểm soát chất lượng và bám sát tiến độ — những bài học thực tế giúp dự án xây dựng về đích đúng hạn với chất lượng cao nhất.',
@@ -352,6 +358,7 @@ export const ARTICLES = {
   'Cổ đông & sự kiện': [
     {
       title: 'Đại hội đồng cổ đông thường niên 2026 – VDF Invest',
+      slug: 'dai-hoi-co-dong-thuong-nien-2026',
       date: '24/04/2026',
       excerpt:
         'Đại hội đồng cổ đông thường niên 2026 thông qua kế hoạch kinh doanh, định hướng đầu tư và các mục tiêu phát triển trọng tâm của VDF INVEST trong năm tới.',
@@ -374,6 +381,7 @@ export const ARTICLES = {
     },
     {
       title: 'VDF INVEST và định hướng phát triển giai đoạn mới',
+      slug: 'dinh-huong-phat-trien-giai-doan-moi',
       date: '15/01/2026',
       excerpt:
         'Với nền tảng từ các dự án hạ tầng quốc gia, VDF INVEST đặt mục tiêu trở thành đối tác chiến lược tin cậy trong đầu tư, xây dựng và thương mại dịch vụ.',
@@ -395,6 +403,19 @@ export const ARTICLES = {
       ],
     },
   ],
+}
+
+// URL riêng của một bài viết.
+export const articleUrl = (article) => `/tin-tuc/${article.slug}`
+
+// Tìm bài viết theo slug, trả về { article, category } hoặc null.
+export function findArticleBySlug(slug) {
+  for (const category of ARTICLE_CATEGORIES) {
+    for (const article of ARTICLES[category] ?? []) {
+      if (article.slug === slug) return { article, category }
+    }
+  }
+  return null
 }
 
 // Link nội bộ dùng đường dẫn '/...' (điều hướng router, có màn trượt);
