@@ -43,7 +43,7 @@ npm run build    # production build in dist/
 The signup form in the contact section posts to a Formspree endpoint:
 
 1. Create a free form at https://formspree.io targeting the company
-   email (investvdf@gmail.com) and copy its endpoint
+   email (tcthuan.vidifi@gmail.com) and copy its endpoint
    (`https://formspree.io/f/xxxxxxxx`).
 2. Paste it into `newsletterEndpoint` in `src/data.js` (`CONTACT`).
 
